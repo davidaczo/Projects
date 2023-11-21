@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "608694151632",
+    "project_id": "mynewapp-d5655",
+    "storage_bucket": "mynewapp-d5655.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608694151632:android:82eaa82186b03f52a0f1d5",
+        "android_client_info": {
+          "package_name": "com.daczoka.demo01"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIlgJE9Ej2yp0jF97IvOJSCeQBaroTAUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

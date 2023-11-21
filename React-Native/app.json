@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "android": {
+      "permissions": [
+        "NOTIFICATIONS"
+      ],
+      "package": "com.daczoka.demo01",
+      "googleServicesFile": "./google-services.json"
+    },
+    "scheme": "acme",
+    "web": {
+      "bundler": "metro"
+    },
+    "name": "demo01",
+    "slug": "demo01",
+    "extra": {
+      "eas": {
+        "projectId": "1d6694db-0749-4aa4-aa34-974b5de2d3b7"
+      }
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "ios": {
+      "bundleIdentifier": "com.daczoka.demo01"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+CREATE TABLE orderEntity (
+    orderId INTEGER PRIMARY KEY AUTOINCREMENT
+);
+
+CREATE TABLE ordersBook (
+    orderId INTEGER NOT NULL,
+    bookId INTEGER NOT NULL,
+    FOREIGN KEY (orderId) REFERENCES orderEntity(orderId),
+    PRIMARY KEY (orderId, bookId)
+);
+
+insertOrder:
+INSERT INTO orderEntity(orderId)
+VALUES (?);
+
+insertOrdersBooks:
+INSERT INTO ordersBook(orderId, bookId)
+VALUES (?,?);
+
+getAllOrders:
+SELECT * FROM ordersBook;
+
+lastInsertRowId:
+SELECT last_insert_rowid();

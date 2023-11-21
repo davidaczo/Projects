@@ -1,0 +1,9 @@
+{
+  "expoServerPort": 19000,
+  "packagerPort": 19000,
+  "expoServerNgrokUrl": "https://5n-wth.daczoka.demo01.exp.direct",
+  "packagerNgrokUrl": "https://5n-wth.daczoka.demo01.exp.direct",
+  "ngrokPid": 19112,
+  "packagerPid": null,
+  "webpackServerPort": null
+}
