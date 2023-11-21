@@ -1,0 +1,9 @@
+# ignore folders
+build
+coverage
+
+package-lock.json
+package.json
+README.md
+tsconfig.json
+manifest.json

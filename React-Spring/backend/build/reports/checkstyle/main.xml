@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.26">
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\BiomapsApplication.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\WebConfiguration.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\AuthController.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\CountryController.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\LocationController.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\ObservationController.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\SpeciesController.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\UserController.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\exception\BadRequestException.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\controller\exception\NotFoundException.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\CreationCountryDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\CreationLocationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\CreationObservationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\CreationSpeciesDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\CreationUserDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\FilterObservationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\RequestAuthentificationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\UpdateObservationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\incoming\UpdateUserDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\outgoing\CountryDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\outgoing\LocationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\outgoing\ObservationDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\outgoing\SpeciesDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\dto\outgoing\UserDto.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\mapper\CountryMapper.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\mapper\LocationMapper.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\mapper\ObservationMapper.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\mapper\SpeciesMapper.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\mapper\UserMapper.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Country.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Developement.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\File.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Location.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\ObmUserDetails.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Observation.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Role.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Species.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\Status.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\model\User.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\CountryRepository.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\FileRepository.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\LocationRepository.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\ObservationDao.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\ObservationRepository.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\SpeciesRepository.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\repository\UserRepository.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\security\AuthFilter.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\security\WebSecurityConfiguration.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\CountryService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\FileService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\LocationService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\ObmUserDetailsService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\ObservationService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\SpeciesService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\service\UserService.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\util\GeometryToGeoJsonSerializer.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\util\JwtUtil.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\util\ProjectConstants.java">
+</file>
+<file name="E:\backend\src\main\java\edu\codespring\ro\biomap\util\WktBuilder.java">
+</file>
+</checkstyle>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="8.26">
+<file name="E:\backend\src\test\java\edu\codespring\ro\biomap\SpringreactApplicationTests.java">
+</file>
+<file name="E:\backend\src\test\java\edu\codespring\ro\biomap\service\SuppressFBWarnings.java">
+</file>
+</checkstyle>

@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+    }
+
+    dependencies {
+        classpath group: 'gradle.plugin.com.github.spotbugs.snom', name: 'spotbugs-gradle-plugin', version: '4.7.1'
+        classpath group: 'se.bjurr.violations', name: 'violations-gradle-plugin', version: '1.37'
+    }
+}
+
+apply plugin: CheckstylePlugin
+apply plugin: com.github.spotbugs.snom.SpotBugsPlugin
+
+def configDir = buildscript.sourceFile.parentFile
+
+spotbugs {
+    toolVersion = '4.4.2'
+    ignoreFailures = true
+    effort = 'max'
+    reportLevel = 'low'
+    excludeFilter = file("${configDir}/spotbugs-filter.xml")
+}
+
+checkstyle {
+    toolVersion = '8.26'
+    ignoreFailures = true
+    configFile = file("${configDir}/checkstyle.xml")
+}
+
+task violations(type: se.bjurr.violations.gradle.plugin.ViolationsTask) {
+    maxRuleColumnWidth = 25
+    maxMessageColumnWidth = 80
+
+    minSeverity = 'INFO' // INFO, WARN or ERROR
+    detailLevel = 'VERBOSE' // PER_FILE_COMPACT, COMPACT or VERBOSE
+    maxViolations = 0 // Will fail the build if total number of found violations is higher
+
+    violations = [
+            ["FINDBUGS", buildDir.path, ".*/spotbugs/.*\\.xml\$", "SpotBugs"],
+            ["CHECKSTYLE", buildDir.path, ".*/checkstyle/.*\\.xml\$", "Checkstyle"]
+    ]
+}
+
+check.finalizedBy violations

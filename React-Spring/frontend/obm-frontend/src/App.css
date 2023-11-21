@@ -1,0 +1,43 @@
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
+
+.mapscreen-container {
+    height: 93%;
+}
+#headerNavBar {
+    top: 0%;
+    margin: 0;
+    height: 7%;
+    min-height: 60px;
+}
+#root {
+    height: 100%;
+    margin: 0;
+}
+body,
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+
+#map-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loader {
+    background: transparent;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1000;
+}

@@ -1,0 +1,64 @@
+buildscript {
+	ext {
+		rootGradleDir = "${rootProject.rootDir}/gradle"
+	}
+}
+
+plugins {
+	id 'org.springframework.boot' version '2.5.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+apply from: "${rootGradleDir}/static-code-analysis/staticCodeAnalysis.gradle"
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.31'
+	runtimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+	implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.23'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.4'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.12.4'
+	compileOnly group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final'
+	annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.4.2.Final'
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310
+	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.12.5'
+	// https://mvnrepository.com/artifact/org.hibernate/hibernate-spatial
+	implementation group: 'org.hibernate', name: 'hibernate-spatial', version: '5.5.6'
+	compileOnly group: 'org.mapstruct', name: 'mapstruct', version: '1.4.2.Final'
+	annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.4.2.Final'
+	// https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.2'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+	// https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
+
+}
+
+test {
+	useJUnitPlatform()
+}

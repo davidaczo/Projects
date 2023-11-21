@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="4.4.2" sequence="0" timestamp="1684396403062" analysisTimestamp="1684396403103" release="0.0.1-SNAPSHOT">
+  <Project projectName="springreact (spotbugsMain)">
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\BiomapsApplication.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\AuthController.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\CountryController.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\exception\BadRequestException.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\exception\NotFoundException.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\LocationController.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\ObservationController.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\SpeciesController.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\controller\UserController.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\CreationCountryDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\CreationLocationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\CreationObservationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\CreationSpeciesDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\CreationUserDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\FilterObservationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\RequestAuthentificationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\UpdateObservationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\incoming\UpdateUserDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\outgoing\CountryDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\outgoing\LocationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\outgoing\ObservationDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\outgoing\SpeciesDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\dto\outgoing\UserDto.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\CountryMapper.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\CountryMapperImpl.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\LocationMapper.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\LocationMapperImpl.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\ObservationMapper.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\ObservationMapperImpl.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\SpeciesMapper.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\SpeciesMapperImpl.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\UserMapper.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\mapper\UserMapperImpl.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Country.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Developement.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\File.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Location.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\ObmUserDetails.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Observation.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Role.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Species.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\Status.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\model\User.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\CountryRepository.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\FileRepository.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\LocationRepository.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\ObservationDao.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\ObservationRepository.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\SpeciesRepository.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\repository\UserRepository.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\security\AuthFilter.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\security\WebSecurityConfiguration.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\CountryService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\FileService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\LocationService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\ObmUserDetailsService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\ObservationService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\SpeciesService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\service\UserService.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\util\GeometryToGeoJsonSerializer.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\util\JwtUtil.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\util\ProjectConstants.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\util\WktBuilder.class</Jar>
+    <Jar>E:\backend\build\classes\java\main\edu\codespring\ro\biomap\WebConfiguration.class</Jar>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.projectlombok\lombok\1.18.20\18bcea7d5df4d49227b4a0743a536208ce4825bb\lombok-1.18.20.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.mapstruct\mapstruct-processor\1.4.2.Final\e55bd90d51cddd638c07d5bd89fc7535d4e3d069\mapstruct-processor-1.4.2.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.mapstruct\mapstruct\1.4.2.Final\68d82e631f75d073b3a432cb6cc1920fec57357b\mapstruct-1.4.2.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-data-jpa\2.5.2\5038e48790990bc137c9a7e1cd97901a1350eb37\spring-boot-starter-data-jpa-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-thymeleaf\2.5.2\bbf0322ed2d1e9b6b7e7e46903ceb1bba0dd3ba2\spring-boot-starter-thymeleaf-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-web\2.5.2\9d68318f6607728e253030aa145e529bae9b0883\spring-boot-starter-web-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-security\2.5.2\5830a0f1dbff35089757b888a0209b90985e033a\spring-boot-starter-security-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.data\spring-data-jpa\2.5.2\37a27171338da87485cdf66a40596195433d1db\spring-data-jpa-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.thymeleaf\thymeleaf-spring5\3.0.12.RELEASE\aa640b214411978a23cbe271c3fb9569d1bda608\thymeleaf-spring5-3.0.12.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.thymeleaf.extras\thymeleaf-extras-java8time\3.0.4.RELEASE\36e7175ddce36c486fff4578b5af7bb32f54f5df\thymeleaf-extras-java8time-3.0.4.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.hibernate\hibernate-spatial\5.5.6\178863c25750a0d96fc5972223c83db584bc7f1e\hibernate-spatial-5.5.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.geolatte\geolatte-geom\1.8.0\e0265bdff9d9b74f5351ef835005871ca6e028d7\geolatte-geom-1.8.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-jdbc\2.5.2\de9142ad6a67d2ec7d58465ab8d2fcf759f24d25\spring-boot-starter-jdbc-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.zaxxer\HikariCP\4.0.3\107cbdf0db6780a065f895ae9d8fbf3bb0e1c21f\HikariCP-4.0.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.data\spring-data-commons\2.5.2\25a00968c046736667e086ed9fd254f0e26e7ffc\spring-data-commons-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.thymeleaf\thymeleaf\3.0.12.RELEASE\de1865b0d58590a50c33900115a293335dd8ef25\thymeleaf-3.0.12.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-validation\2.5.2\1c024ce841f5b44c5bad46a4bd427c539dcccaf4\spring-boot-starter-validation-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-aop\2.5.2\1877448bb875154c2558e385f4590c648ada5f11\spring-boot-starter-aop-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-json\2.5.2\6af2e2d4fcf02fcda700dbbcd4643e78d31bcc8c\spring-boot-starter-json-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter\2.5.2\5aa5345f60cd3fbca331c05015e0700553448d66\spring-boot-starter-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-logging\2.5.2\8b94a1e350f68f8c3a7de6460e5691a84c8c157d\spring-boot-starter-logging-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\ch.qos.logback\logback-classic\1.2.3\7c4f3c474fb2c041d8028740440937705ebb473a\logback-classic-1.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-to-slf4j\2.14.1\ce8a86a3f50a4304749828ce68e7478cafbc8039\log4j-to-slf4j-2.14.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.slf4j\jul-to-slf4j\1.7.31\f9ff62d83a25a94c1619de06d4015e2797bc849c\jul-to-slf4j-1.7.31.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.31\9545c9cb71de4c18d97a91e32ef0be6f3f6661b7\slf4j-api-1.7.31.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.postgresql\postgresql\42.2.23\9cb217a3d5b640567ed7c6e8c11f389613c81c4d\postgresql-42.2.23.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.datatype\jackson-datatype-jdk8\2.12.3\77424ea087313312e308dae5ff8445608aabb5e1\jackson-datatype-jdk8-2.12.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.module\jackson-module-parameter-names\2.12.3\592a882beaf1bd57b8fe960b937a2706b090b4d7\jackson-module-parameter-names-2.12.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.12.4\6a1bd259b6c4e3f9219ec8ec0be55ed11eed0c\jackson-core-2.12.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.12.3\7275513412694a1aafd08c0287f48469fa0e6e17\jackson-annotations-2.12.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.datatype\jackson-datatype-jsr310\2.12.5\a0a9870b681a72789c5c6bdc380e45ab719c6aa3\jackson-datatype-jsr310-2.12.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\io.jsonwebtoken\jjwt\0.9.1\54d2abfc3e63a28824d35bf600d6a5d627da681a\jjwt-0.9.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.12.4\69206e02e6a696034f06a59d3ddbfbba5a4cd81\jackson-databind-2.12.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.hibernate\hibernate-core\5.4.32.Final\99a5e10bf455337014c190e141ec631e9ff71663\hibernate-core-5.4.32.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\javax.xml.bind\jaxb-api\2.3.1\8531ad5ac454cc2deb9d4d32c40c4d7451939b5d\jaxb-api-2.3.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\jakarta.transaction\jakarta.transaction-api\1.3.3\c4179d48720a1e87202115fbed6089bdc4195405\jakarta.transaction-api-1.3.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\jakarta.persistence\jakarta.persistence-api\2.2.3\8f6ea5daedc614f07a3654a455660145286f024e\jakarta.persistence-api-2.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-aspects\5.3.8\863f531cc3ea9d82d391d17c8eb33732e7a864b6\spring-aspects-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-tomcat\2.5.2\ed7d2ef9efef6145bdc8c9c4dd1790f51673f27d\spring-boot-starter-tomcat-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-webmvc\5.3.8\2cfa5e12bf103e2c82db78ce198e455dab456465\spring-webmvc-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.security\spring-security-web\5.5.1\e042c61f262096193a021f635511cc3922a78510\spring-security-web-5.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-web\5.3.8\daa288e67b0f2e09a033500d5ce8406677c5045c\spring-web-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.security\spring-security-config\5.5.1\a4610e934dd52d7871bf2f3e923dfee99be76636\spring-security-config-5.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-autoconfigure\2.5.2\aa924c5d0d375f4b2b66f211704c24d40a7e647b\spring-boot-autoconfigure-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot\2.5.2\bd6dc87b5ad870dbf635d0c7d9a3006666c9e797\spring-boot-2.5.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.security\spring-security-core\5.5.1\e7cc9d0e918d97419fcc97f08cdade945b1144d7\spring-security-core-5.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-context\5.3.8\c367a05423e963c222e38a6a88b97d44de3880ca\spring-context-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-aop\5.3.8\1377f80f938b1fc7eabe9e6c4f6895e77e3bec40\spring-aop-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.hibernate.validator\hibernate-validator\6.2.0.Final\d6b0760dfffbf379cedd02f715ff4c9a2e215921\hibernate-validator-6.2.0.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.hibernate.common\hibernate-commons-annotations\5.1.2.Final\e59ffdbc6ad09eeb33507b39ffcf287679a498c8\hibernate-commons-annotations-5.1.2.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.jboss.logging\jboss-logging\3.4.2.Final\e517b8a93dd9962ed5481345e4d262fdd47c4217\jboss-logging-3.4.2.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-el\9.0.48\c46a092831493ccf65674cb19235625853ceb3d4\tomcat-embed-el-9.0.48.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\javax.activation\javax.activation-api\1.2.0\85262acf3ca9816f9537ca47d5adeabaead7cb16\javax.activation-api-1.2.0.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.aspectj\aspectjweaver\1.9.6\ee3b73aa16df35179255f17354d9dfd8e7822835\aspectjweaver-1.9.6.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-orm\5.3.8\bac8889d4621f2f47ee2b118ebbddf61dd299239\spring-orm-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-jdbc\5.3.8\cf8b7a2be3565eed94f575ae640e22d9357c7dcd\spring-jdbc-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.javassist\javassist\3.27.0-GA\f63e6aa899e15eca8fdaa402a79af4c417252213\javassist-3.27.0-GA.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy\1.10.22\ef45d7e2cd1c600d279704f492ed5ce2ceb6cdb5\byte-buddy-1.10.22.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\antlr\antlr\2.7.7\83cd2cd674a217ade95a4bb83a8a14f351f48bd0\antlr-2.7.7.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.jboss\jandex\2.2.3.Final\d3865101f0666b63586683bd811d754517f331ab\jandex-2.2.3.Final.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.fasterxml\classmate\1.5.1\3fe0bed568c62df5e89f4f174c101eab25345b6c\classmate-1.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.dom4j\dom4j\2.1.3\a75914155a9f5808963170ec20653668a2ffd2fd\dom4j-2.1.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\jaxb-runtime\2.3.4\5f3828d3a345ff3d8acb83f07ba04eccf59e15bb\jaxb-runtime-2.3.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-tx\5.3.8\3202859a7e9560110f1fe8284c28feb009c6f460\spring-tx-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-beans\5.3.8\3d66fed1eebfcd119efcabc6218c813700a21ed\spring-beans-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-expression\5.3.8\8a14547b76cbae3aeb02739e5b38e71835a6bbd8\spring-expression-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-core\5.3.8\da9b87dacaa5bbf80fad0f7b483988372a00a152\spring-core-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\jakarta.annotation\jakarta.annotation-api\1.3.5\59eb84ee0d616332ff44aba065f3888cf002cd2d\jakarta.annotation-api-1.3.5.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.yaml\snakeyaml\1.28\7cae037c3014350c923776548e71c9feb7a69259\snakeyaml-1.28.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-websocket\9.0.48\a34e3133ec3d61f4c2faa30476c4b43cc6385dd6\tomcat-embed-websocket-9.0.48.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.apache.tomcat.embed\tomcat-embed-core\9.0.48\f112cd2380d8215e22ac40aff128a1b6daa2f0ac\tomcat-embed-core-9.0.48.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.locationtech.jts\jts-core\1.18.2\cf69824dabd57099eff3bceb1a93a2061cc9a0ff\jts-core-1.18.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\jakarta.validation\jakarta.validation-api\2.0.2\5eacc6522521f7eacb081f95cee1e231648461e7\jakarta.validation-api-2.0.2.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\jakarta.xml.bind\jakarta.xml.bind-api\2.3.3\48e3b9cfc10752fba3521d6511f4165bea951801\jakarta.xml.bind-api-2.3.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.glassfish.jaxb\txw2\2.3.4\257fa649d3137a1060d222aefb96b7d1dd5f1286\txw2-2.3.4.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\com.sun.istack\istack-commons-runtime\3.0.12\cbbe1a62b0cc6c85972e99d52aaee350153dc530\istack-commons-runtime-3.0.12.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework\spring-jcl\5.3.8\a143c8618eb2be8674c3cf132d9a5c953bb5488\spring-jcl-5.3.8.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.attoparser\attoparser\2.0.5.RELEASE\a93ad36df9560de3a5312c1d14f69d938099fa64\attoparser-2.0.5.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.unbescape\unbescape\1.1.6.RELEASE\7b90360afb2b860e09e8347112800d12c12b2a13\unbescape-1.1.6.RELEASE.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.springframework.security\spring-security-crypto\5.5.1\37ca67b6ff195b00bd29e65206c74017ca90239e\spring-security-crypto-5.5.1.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\ch.qos.logback\logback-core\1.2.3\864344400c3d4d92dfeb0a305dc87d953677c03c\logback-core-1.2.3.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>C:\Users\Dell\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-api\2.14.1\cd8858fbbde69f46bce8db1152c18a43328aae78\log4j-api-2.14.1.jar</AuxClasspathEntry>
+    <SrcDir>E:\backend\src\main\resources</SrcDir>
+    <SrcDir>E:\backend\src\main\java</SrcDir>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Thu, 18 May 2023 10:53:23 +0300" total_classes="64" referenced_classes="330" total_bugs="0" total_size="1634" num_packages="11" java_version="15.0.2" vm_version="15.0.2+7-27" cpu_seconds="34.12" clock_seconds="8.10" peak_mbytes="199.15" alloc_mbytes="512.00" gc_seconds="0.12">
+    <FileStats path="edu/codespring/ro/biomap/BiomapsApplication.java" bugCount="0" size="6"/>
+    <FileStats path="edu/codespring/ro/biomap/WebConfiguration.java" bugCount="0" size="6"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/AuthController.java" bugCount="0" size="28"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/CountryController.java" bugCount="0" size="40"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/LocationController.java" bugCount="0" size="46"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/ObservationController.java" bugCount="0" size="35"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/SpeciesController.java" bugCount="0" size="44"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/UserController.java" bugCount="0" size="35"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/exception/BadRequestException.java" bugCount="0" size="4"/>
+    <FileStats path="edu/codespring/ro/biomap/controller/exception/NotFoundException.java" bugCount="0" size="11"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/CreationCountryDto.java" bugCount="0" size="11"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/CreationLocationDto.java" bugCount="0" size="19"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/CreationObservationDto.java" bugCount="0" size="51"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/CreationSpeciesDto.java" bugCount="0" size="15"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/CreationUserDto.java" bugCount="0" size="35"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/FilterObservationDto.java" bugCount="0" size="35"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/RequestAuthentificationDto.java" bugCount="0" size="15"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/UpdateObservationDto.java" bugCount="0" size="35"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/incoming/UpdateUserDto.java" bugCount="0" size="27"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/outgoing/CountryDto.java" bugCount="0" size="13"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/outgoing/LocationDto.java" bugCount="0" size="19"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/outgoing/ObservationDto.java" bugCount="0" size="59"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/outgoing/SpeciesDto.java" bugCount="0" size="16"/>
+    <FileStats path="edu/codespring/ro/biomap/dto/outgoing/UserDto.java" bugCount="0" size="39"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/CountryMapper.java" bugCount="0" size="6"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/CountryMapperImpl.java" bugCount="0" size="26"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/LocationMapper.java" bugCount="0" size="6"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/LocationMapperImpl.java" bugCount="0" size="32"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/ObservationMapper.java" bugCount="0" size="29"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/ObservationMapperImpl.java" bugCount="0" size="42"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/SpeciesMapper.java" bugCount="0" size="6"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/SpeciesMapperImpl.java" bugCount="0" size="29"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/UserMapper.java" bugCount="0" size="7"/>
+    <FileStats path="edu/codespring/ro/biomap/mapper/UserMapperImpl.java" bugCount="0" size="50"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Country.java" bugCount="0" size="16"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Developement.java" bugCount="0" size="14"/>
+    <FileStats path="edu/codespring/ro/biomap/model/File.java" bugCount="0" size="20"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Location.java" bugCount="0" size="24"/>
+    <FileStats path="edu/codespring/ro/biomap/model/ObmUserDetails.java" bugCount="0" size="45"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Observation.java" bugCount="0" size="60"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Role.java" bugCount="0" size="12"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Species.java" bugCount="0" size="20"/>
+    <FileStats path="edu/codespring/ro/biomap/model/Status.java" bugCount="0" size="11"/>
+    <FileStats path="edu/codespring/ro/biomap/model/User.java" bugCount="0" size="44"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/CountryRepository.java" bugCount="0" size="1"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/FileRepository.java" bugCount="0" size="1"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/LocationRepository.java" bugCount="0" size="2"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/ObservationDao.java" bugCount="0" size="88"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/ObservationRepository.java" bugCount="0" size="3"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/SpeciesRepository.java" bugCount="0" size="4"/>
+    <FileStats path="edu/codespring/ro/biomap/repository/UserRepository.java" bugCount="0" size="5"/>
+    <FileStats path="edu/codespring/ro/biomap/security/AuthFilter.java" bugCount="0" size="33"/>
+    <FileStats path="edu/codespring/ro/biomap/security/WebSecurityConfiguration.java" bugCount="0" size="24"/>
+    <FileStats path="edu/codespring/ro/biomap/service/CountryService.java" bugCount="0" size="25"/>
+    <FileStats path="edu/codespring/ro/biomap/service/FileService.java" bugCount="0" size="20"/>
+    <FileStats path="edu/codespring/ro/biomap/service/LocationService.java" bugCount="0" size="34"/>
+    <FileStats path="edu/codespring/ro/biomap/service/ObmUserDetailsService.java" bugCount="0" size="11"/>
+    <FileStats path="edu/codespring/ro/biomap/service/ObservationService.java" bugCount="0" size="85"/>
+    <FileStats path="edu/codespring/ro/biomap/service/SpeciesService.java" bugCount="0" size="38"/>
+    <FileStats path="edu/codespring/ro/biomap/service/UserService.java" bugCount="0" size="37"/>
+    <FileStats path="edu/codespring/ro/biomap/util/GeometryToGeoJsonSerializer.java" bugCount="0" size="20"/>
+    <FileStats path="edu/codespring/ro/biomap/util/JwtUtil.java" bugCount="0" size="33"/>
+    <FileStats path="edu/codespring/ro/biomap/util/ProjectConstants.java" bugCount="0" size="11"/>
+    <FileStats path="edu/codespring/ro/biomap/util/WktBuilder.java" bugCount="0" size="16"/>
+    <PackageStats package="edu.codespring.ro.biomap" total_bugs="0" total_types="2" total_size="12">
+      <ClassStats class="edu.codespring.ro.biomap.BiomapsApplication" sourceFile="BiomapsApplication.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.WebConfiguration" sourceFile="WebConfiguration.java" interface="false" size="6" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.controller" total_bugs="0" total_types="6" total_size="228">
+      <ClassStats class="edu.codespring.ro.biomap.controller.AuthController" sourceFile="AuthController.java" interface="false" size="28" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.controller.CountryController" sourceFile="CountryController.java" interface="false" size="40" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.controller.LocationController" sourceFile="LocationController.java" interface="false" size="46" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.controller.ObservationController" sourceFile="ObservationController.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.controller.SpeciesController" sourceFile="SpeciesController.java" interface="false" size="44" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.controller.UserController" sourceFile="UserController.java" interface="false" size="35" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.controller.exception" total_bugs="0" total_types="2" total_size="15">
+      <ClassStats class="edu.codespring.ro.biomap.controller.exception.BadRequestException" sourceFile="BadRequestException.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.controller.exception.NotFoundException" sourceFile="NotFoundException.java" interface="false" size="11" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.dto.incoming" total_bugs="0" total_types="9" total_size="243">
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.CreationCountryDto" sourceFile="CreationCountryDto.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.CreationLocationDto" sourceFile="CreationLocationDto.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.CreationObservationDto" sourceFile="CreationObservationDto.java" interface="false" size="51" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.CreationSpeciesDto" sourceFile="CreationSpeciesDto.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.CreationUserDto" sourceFile="CreationUserDto.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.FilterObservationDto" sourceFile="FilterObservationDto.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.RequestAuthentificationDto" sourceFile="RequestAuthentificationDto.java" interface="false" size="15" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.UpdateObservationDto" sourceFile="UpdateObservationDto.java" interface="false" size="35" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.incoming.UpdateUserDto" sourceFile="UpdateUserDto.java" interface="false" size="27" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.dto.outgoing" total_bugs="0" total_types="5" total_size="146">
+      <ClassStats class="edu.codespring.ro.biomap.dto.outgoing.CountryDto" sourceFile="CountryDto.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.outgoing.LocationDto" sourceFile="LocationDto.java" interface="false" size="19" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.outgoing.ObservationDto" sourceFile="ObservationDto.java" interface="false" size="59" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.outgoing.SpeciesDto" sourceFile="SpeciesDto.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.dto.outgoing.UserDto" sourceFile="UserDto.java" interface="false" size="39" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.mapper" total_bugs="0" total_types="10" total_size="233">
+      <ClassStats class="edu.codespring.ro.biomap.mapper.CountryMapper" sourceFile="CountryMapper.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.CountryMapperImpl" sourceFile="CountryMapperImpl.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.LocationMapper" sourceFile="LocationMapper.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.LocationMapperImpl" sourceFile="LocationMapperImpl.java" interface="false" size="32" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.ObservationMapper" sourceFile="ObservationMapper.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.ObservationMapperImpl" sourceFile="ObservationMapperImpl.java" interface="false" size="42" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.SpeciesMapper" sourceFile="SpeciesMapper.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.SpeciesMapperImpl" sourceFile="SpeciesMapperImpl.java" interface="false" size="29" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.UserMapper" sourceFile="UserMapper.java" interface="false" size="7" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.mapper.UserMapperImpl" sourceFile="UserMapperImpl.java" interface="false" size="50" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.model" total_bugs="0" total_types="10" total_size="266">
+      <ClassStats class="edu.codespring.ro.biomap.model.Country" sourceFile="Country.java" interface="false" size="16" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.Developement" sourceFile="Developement.java" interface="false" size="14" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.File" sourceFile="File.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.Location" sourceFile="Location.java" interface="false" size="24" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.ObmUserDetails" sourceFile="ObmUserDetails.java" interface="false" size="45" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.Observation" sourceFile="Observation.java" interface="false" size="60" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.Role" sourceFile="Role.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.Species" sourceFile="Species.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.Status" sourceFile="Status.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.model.User" sourceFile="User.java" interface="false" size="44" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.repository" total_bugs="0" total_types="7" total_size="104">
+      <ClassStats class="edu.codespring.ro.biomap.repository.CountryRepository" sourceFile="CountryRepository.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.repository.FileRepository" sourceFile="FileRepository.java" interface="true" size="1" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.repository.LocationRepository" sourceFile="LocationRepository.java" interface="true" size="2" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.repository.ObservationDao" sourceFile="ObservationDao.java" interface="false" size="88" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.repository.ObservationRepository" sourceFile="ObservationRepository.java" interface="true" size="3" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.repository.SpeciesRepository" sourceFile="SpeciesRepository.java" interface="true" size="4" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.repository.UserRepository" sourceFile="UserRepository.java" interface="true" size="5" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.security" total_bugs="0" total_types="2" total_size="57">
+      <ClassStats class="edu.codespring.ro.biomap.security.AuthFilter" sourceFile="AuthFilter.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.security.WebSecurityConfiguration" sourceFile="WebSecurityConfiguration.java" interface="false" size="24" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.service" total_bugs="0" total_types="7" total_size="250">
+      <ClassStats class="edu.codespring.ro.biomap.service.CountryService" sourceFile="CountryService.java" interface="false" size="25" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.service.FileService" sourceFile="FileService.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.service.LocationService" sourceFile="LocationService.java" interface="false" size="34" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.service.ObmUserDetailsService" sourceFile="ObmUserDetailsService.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.service.ObservationService" sourceFile="ObservationService.java" interface="false" size="85" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.service.SpeciesService" sourceFile="SpeciesService.java" interface="false" size="38" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.service.UserService" sourceFile="UserService.java" interface="false" size="37" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="edu.codespring.ro.biomap.util" total_bugs="0" total_types="4" total_size="80">
+      <ClassStats class="edu.codespring.ro.biomap.util.GeometryToGeoJsonSerializer" sourceFile="GeometryToGeoJsonSerializer.java" interface="false" size="20" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.util.JwtUtil" sourceFile="JwtUtil.java" interface="false" size="33" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.util.ProjectConstants" sourceFile="ProjectConstants.java" interface="false" size="11" bugs="0"/>
+      <ClassStats class="edu.codespring.ro.biomap.util.WktBuilder" sourceFile="WktBuilder.java" interface="false" size="16" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1133" invocations="1663" avgMicrosecondsPerInvocation="681" maxMicrosecondsPerInvocation="26448" standardDeviationMicrosecondsPerInvocation="1629"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="458" invocations="330" avgMicrosecondsPerInvocation="1389" maxMicrosecondsPerInvocation="59841" standardDeviationMicrosecondsPerInvocation="4354"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="350" invocations="1677" avgMicrosecondsPerInvocation="209" maxMicrosecondsPerInvocation="33333" standardDeviationMicrosecondsPerInvocation="837"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="325" invocations="330" avgMicrosecondsPerInvocation="985" maxMicrosecondsPerInvocation="30917" standardDeviationMicrosecondsPerInvocation="2677"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="256" invocations="492" avgMicrosecondsPerInvocation="521" maxMicrosecondsPerInvocation="18070" standardDeviationMicrosecondsPerInvocation="1580"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="229" invocations="493" avgMicrosecondsPerInvocation="465" maxMicrosecondsPerInvocation="21666" standardDeviationMicrosecondsPerInvocation="1451"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.MethodGenFactory" totalMilliseconds="226" invocations="519" avgMicrosecondsPerInvocation="437" maxMicrosecondsPerInvocation="143922" standardDeviationMicrosecondsPerInvocation="6371"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="208" invocations="494" avgMicrosecondsPerInvocation="422" maxMicrosecondsPerInvocation="14769" standardDeviationMicrosecondsPerInvocation="1426"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="208" invocations="844" avgMicrosecondsPerInvocation="247" maxMicrosecondsPerInvocation="6307" standardDeviationMicrosecondsPerInvocation="599"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="205" invocations="493" avgMicrosecondsPerInvocation="415" maxMicrosecondsPerInvocation="24290" standardDeviationMicrosecondsPerInvocation="1623"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="190" invocations="493" avgMicrosecondsPerInvocation="386" maxMicrosecondsPerInvocation="12169" standardDeviationMicrosecondsPerInvocation="1077"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="171" invocations="494" avgMicrosecondsPerInvocation="348" maxMicrosecondsPerInvocation="16913" standardDeviationMicrosecondsPerInvocation="1255"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="131" invocations="330" avgMicrosecondsPerInvocation="397" maxMicrosecondsPerInvocation="15888" standardDeviationMicrosecondsPerInvocation="1366"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="128" invocations="462" avgMicrosecondsPerInvocation="277" maxMicrosecondsPerInvocation="17846" standardDeviationMicrosecondsPerInvocation="1023"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="115" invocations="330" avgMicrosecondsPerInvocation="349" maxMicrosecondsPerInvocation="62693" standardDeviationMicrosecondsPerInvocation="3479"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="112" invocations="330" avgMicrosecondsPerInvocation="341" maxMicrosecondsPerInvocation="4610" standardDeviationMicrosecondsPerInvocation="704"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="105" invocations="330" avgMicrosecondsPerInvocation="318" maxMicrosecondsPerInvocation="15069" standardDeviationMicrosecondsPerInvocation="1032"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="101" invocations="1604" avgMicrosecondsPerInvocation="63" maxMicrosecondsPerInvocation="3982" standardDeviationMicrosecondsPerInvocation="160"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="91" invocations="254" avgMicrosecondsPerInvocation="360" maxMicrosecondsPerInvocation="6795" standardDeviationMicrosecondsPerInvocation="691"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CalledMethods" totalMilliseconds="85" invocations="330" avgMicrosecondsPerInvocation="259" maxMicrosecondsPerInvocation="4583" standardDeviationMicrosecondsPerInvocation="615"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.CheckRelaxingNullnessAnnotation" totalMilliseconds="78" invocations="64" avgMicrosecondsPerInvocation="1231" maxMicrosecondsPerInvocation="43277" standardDeviationMicrosecondsPerInvocation="5365"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindReturnRef" totalMilliseconds="76" invocations="64" avgMicrosecondsPerInvocation="1195" maxMicrosecondsPerInvocation="29913" standardDeviationMicrosecondsPerInvocation="4321"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="71" invocations="330" avgMicrosecondsPerInvocation="215" maxMicrosecondsPerInvocation="9180" standardDeviationMicrosecondsPerInvocation="697"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.ReflectiveClasses" totalMilliseconds="61" invocations="330" avgMicrosecondsPerInvocation="185" maxMicrosecondsPerInvocation="8789" standardDeviationMicrosecondsPerInvocation="614"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindInconsistentSync2" totalMilliseconds="60" invocations="64" avgMicrosecondsPerInvocation="941" maxMicrosecondsPerInvocation="24923" standardDeviationMicrosecondsPerInvocation="3128"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ConstantDataflowFactory" totalMilliseconds="58" invocations="493" avgMicrosecondsPerInvocation="118" maxMicrosecondsPerInvocation="5428" standardDeviationMicrosecondsPerInvocation="348"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildStringPassthruGraph" totalMilliseconds="58" invocations="330" avgMicrosecondsPerInvocation="176" maxMicrosecondsPerInvocation="4734" standardDeviationMicrosecondsPerInvocation="490"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History></History>
+</BugCollection>
