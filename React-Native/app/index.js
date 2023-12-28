@@ -1,15 +1,8 @@
-import { useState, useEffect } from 'react';
-import { View, Text, ScrollView, SafeAreaView } from 'react-native'
-import { Stack, useRouter, Redirect } from 'expo-router'
-
-import store from "../redux/store"
-import { Provider } from 'react-redux'
-
+import { Redirect } from 'expo-router'
+import { Provider } from 'mobx-react';
 const App = () => {
     return (
-        <Provider store={store}>
-            <Redirect href="/home" />
-        </Provider>
+        <Redirect href="/home" />
     )
 }
 
