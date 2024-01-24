@@ -1,4 +1,6 @@
 import { Stack } from 'expo-router'
+import { useEffect } from 'react';
+import * as NavigationBar from 'expo-navigation-bar';
 
 const StackLayout = () => {
     return (

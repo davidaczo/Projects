@@ -1,14 +1,65 @@
-import { makeAutoObservable, observable, action } from "mobx";
+import { makeAutoObservable, observable, action, runInAction } from "mobx";
 import axios from 'axios';
 import orderService from "../api/OrdersApi";
 
+const mapOrder = (apiResponse) => {
+    const orderData = apiResponse.data;
+    const {
+        id,
+        code,
+        status,
+        message,
+        created,
+        billing_address,
+        shipping_address,
+        items,
+    } = orderData[0];
+
+    const mappedItems = items.map((item) => {
+        const {
+            base_price,
+            quantity,
+            name,
+            image,
+            discount_rate,
+            attributes,
+            current_price,
+        } = item;
+
+        const mappedAttributes = Object.entries(attributes).reduce(
+            (acc, [key, value]) => {
+                acc[key] = value.map((attr) => attr.value);
+                return acc;
+            },
+            {}
+        );
+
+        return {
+            base_price,
+            quantity,
+            name,
+            image,
+            discount_rate,
+            attributes: mappedAttributes,
+            current_price,
+        };
+    });
+
+    return {
+        id,
+        code,
+        status,
+        message,
+        created,
+        billing_address,
+        shipping_address,
+        items: mappedItems,
+    };
+};
 
 const mapOrders = (apiResponse) => {
-    // Extracting the 'data' field from the API response
     const ordersData = apiResponse.data;
-    // Mapping each order in the data array
     const orders = ordersData.map((orderData) => {
-        // Extracting fields from the order data
         const {
             id,
             code,
@@ -20,7 +71,6 @@ const mapOrders = (apiResponse) => {
             items,
         } = orderData;
 
-        // Mapping items array for the order
         const mappedItems = items.map((item) => {
             const {
                 base_price,
@@ -32,7 +82,6 @@ const mapOrders = (apiResponse) => {
                 current_price,
             } = item;
 
-            // Mapping attributes for the item
             const mappedAttributes = Object.entries(attributes).reduce(
                 (acc, [key, value]) => {
                     acc[key] = value.map((attr) => attr.value);
@@ -67,6 +116,7 @@ const mapOrders = (apiResponse) => {
     return orders
 }
 
+
 class OrdersStore {
     constructor() {
         makeAutoObservable(this);
@@ -75,13 +125,32 @@ class OrdersStore {
     @observable data = null;
     @observable isLoading = false;
     @observable error = null;
+    @observable updatingIndex = -1;
+    @observable isUnproccedOrder = false;
 
-    // action to call API and search images
     @action loadOrders = async (partnerId) => {
         try {
             this.setIsLoading(true);
+
             const data = await orderService.fetchOrders(partnerId);
-            this.setData(mapOrders(data));
+
+            runInAction(() => {
+                let sortedDataList = mapOrders(data).sort((a, b) => {
+                    const dateA = new Date(a.created).getTime();
+                    const dateB = new Date(b.created).getTime();
+                    return dateB - dateA;
+                });
+
+                const registeredStatuses = sortedDataList.filter(item => ["registered"].includes(item.status));
+                const processingStatuses = sortedDataList.filter(item => ["processing"].includes(item.status));
+                const otherStatuses = sortedDataList.filter(item => !["registered", "processing"].includes(item.status));
+
+                sortedDataList = [...registeredStatuses, ...processingStatuses, ...otherStatuses];
+                this.setData(sortedDataList)
+
+                this.isUnproccedOrder = this.data.some(order => order.status === 'registered');
+            });
+
         } catch (error) {
             this.setError(error);
         } finally {
@@ -89,31 +158,54 @@ class OrdersStore {
         }
     }
 
-    @action updateOrder = async (partnerId, orderId, newStatus) => {
-        console.log("update111")
+    @action loadOrder = async (partnerId, orderId) => {
         try {
-            console.log('updating', partnerId, orderId)
+            const orderIndex = this.data.findIndex(order => order.id === orderId);
+            const resp = await orderService.fetchOrder(partnerId, orderId);
+            if (orderIndex !== -1) {
+                runInAction(() => {
+                    const updatedOrder = mapOrder(resp);
+                    this.data[orderIndex].status = updatedOrder.status;
+                    this.setData([...this.data]);
+                    this.isUnproccedOrder = this.data.some(order => order.status === 'registered');
+                });
+            }
+        } catch (error) {
+            this.setError(error);
+        } finally {
+            this.setUpdatingIndex(-1);
+        }
+    }
+
+    @action updateOrder = async (partnerId, orderId, newStatus) => {
+        try {
             await orderService.updateOrder(partnerId, orderId, newStatus);
+            runInAction(() => {
+                this.loadOrder(partnerId, orderId);
+            });
         } catch (error) {
             console.error('Error updating order:', error);
             throw error;
         }
     }
 
-    // action to set data
     @action setData = (data) => {
         this.data = data;
         this.error = null;
     };
 
-    // action to set error
     @action setError = (error) => {
         this.error = error;
         this.data = null;
     };
+    // action to set error
 
     @action setIsLoading(newisLoading) {
         this.isLoading = newisLoading;
+    }
+
+    @action setUpdatingIndex(newIndex) {
+        this.updatingIndex = newIndex
     }
 }
 

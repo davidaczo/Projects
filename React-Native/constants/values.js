@@ -10,3 +10,5 @@ const OrderStatus = {
     REFUSED: 'refused',
     UNDER_PAYMENT: 'underPayment',
 };
+
+export default OrderStatus;

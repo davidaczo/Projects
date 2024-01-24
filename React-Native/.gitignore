@@ -1,0 +1,83 @@
+# Node Modules
+node_modules/
+
+# Expo generated files
+.expo/
+__generated__/
+.cache/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+
+# Debug files
+*.log
+
+# Build files
+/build/
+
+# Dependency directory
+/pnpm-debug.log*
+
+# TypeScript configuration
+/tsconfig.json
+/tsconfig.tsbuildinfo
+/tsconfig.base.json
+/tsconfig.build.json
+
+# IDE configuration
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.komodotools/
+
+# Gradle files
+android/app/build/
+android/gradle.properties
+android/local.properties
+android/app/libs/
+
+# Android Studio
+/android/.idea/
+/android/captures/
+/android/gradle/
+/android/local.properties
+/android/release.key
+/android/proguard-rules.pro
+/android/app/release/
+/android/app/src/main/assets/index.android.bundle
+/android/app/src/main/assets/index.android.bundle.meta
+/android/app/src/main/assets/index.android.bundle.map
+
+# Xcode
+/ios/Pods/
+/ios/Podfile.lock
+/ios/Podfile.lock.orig
+/ios/Podfile.orig
+/ios/Pods
+/ios/build/
+/ios/*.mode1v3
+/ios/*.mode2v3
+/ios/*.perspectivev3
+/ios/*.xcworkspace
+/ios/*.xcodeproj
+/ios/xcuserdata
+/ios/xcshareddata
+/ios/ios.iml
+/ios/ios.ipr
+/ios/ios.iws
+/ios/*.pbxproj
+/ios/*.xccheckout
+/ios/*.xcuserstate
+/ios/Default*.png
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

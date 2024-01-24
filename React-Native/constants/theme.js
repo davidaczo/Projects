@@ -4,14 +4,22 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window")
 
 const COLORS = {
   green: "#9b9a4c",
-  darkPurple: "#312651",
-  lightPurple: "#444262",
+  greenLight: "#bcbc77",
+  secondary: "#312651",
+  secondaryLight: "#444262",
   orange: "#FF7754",
   gray: "#83829A",
-  gray2: "#C1C0C8",
+  lightGray: "#f8f6f7",
 
-  white: "#F3F4F8",
-  lightWhite: "#FAFAFC",
+  white: "#FFFFFF",
+  lightWhite: "#F3F4F8",
+
+  red: '#FF0000',
+
+  textBlack: '#313131',
+  textGray: '#919191',
+  borderGray: '#E4E4E4'
+
 };
 
 const FONT = {

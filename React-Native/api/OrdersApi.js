@@ -1,7 +1,7 @@
 // api/apiService.js
 import axios from 'axios';
 
-const apiUrl = 'http://192.168.1.7:8000/api';
+const apiUrl = 'http://3.121.10.45/api';
 
 const orderService = {
     async fetchOrders(partnerId) {
@@ -14,14 +14,22 @@ const orderService = {
         }
     },
 
+    async fetchOrder(partnerId, orderId) {
+        try {
+            const response = await axios.get(`${apiUrl}/partner/${partnerId}/orders/${orderId}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching orders:', error);
+            throw new Error('Failed to fetch orders');
+        }
+    },
     async updateOrder(partnerId, orderId, newStatus) {
-        console.log('API Response:')
+        console.log('API Response:', partnerId, orderId, newStatus)
         try {
             const response = await axios.put(
                 `${apiUrl}/partner/${partnerId}/orders/${orderId}`,
                 { status: newStatus }
             );
-            console.log('API Response:', response.data);
             return response.data;
         } catch (error) {
             console.error('Error updating order:', error);

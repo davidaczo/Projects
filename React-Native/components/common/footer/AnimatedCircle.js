@@ -24,8 +24,16 @@ const styles = StyleSheet.create({
         width: circleContainerSize,
         borderRadius: circleContainerSize,
         height: circleContainerSize,
-        backgroundColor: COLORS.green,
+        backgroundColor: COLORS.orange,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        elevation: 4,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 3,
+        },
+        shadowOpacity: 0.95,
+        shadowRadius: 16,
     },
 });

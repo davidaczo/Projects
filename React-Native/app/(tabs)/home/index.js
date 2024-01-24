@@ -29,13 +29,13 @@ const handleNotificationId = async () => {
   registerIndieID('test1', 9850, 'YcP3wRuqi1RbGXiH5yt5kC');
   storeData("Hello121")
   getData()
-  //     axios.post(`https://app.nativenotify.com/api/indie/notification`, {
-  //       subID: 'test1',
-  //       appId: 9850,
-  //       appToken: 'YcP3wRuqi1RbGXiH5yt5kC',
-  //       title: 'Hello user',
-  //       message: 'You opened the app :)'
-  //  });
+  // axios.post(`https://app.nativenotify.com/api/indie/notification`, {
+  //   subID: 'test1',
+  //   appId: 9850,
+  //   appToken: 'YcP3wRuqi1RbGXiH5yt5kC',
+  //   title: 'Hello user',
+  //   message: 'You opened the app :)'
+  // });
 }
 
 const Home = observer(() => {
@@ -82,6 +82,7 @@ const Home = observer(() => {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhrite }}>
       <ScrollView>
+        <Text>{"adssad"}</Text>
         {/* {products.map((product, index) => {
           return (
             <View
