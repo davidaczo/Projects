@@ -1,70 +1,102 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native'
 import DetailInfoSection from "./DetailInfoSection";
 import PhoneNumberLink from "../../common/text/PhoneNumberLink";
 import { COLORS } from '../../../constants';
+import { useState } from 'react';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native'; // Import the hook
 
-const OrderItems = ({ items }) => (
-    <View>
+const OrderItems = ({ items }) => {
+    const navigation = useNavigation(); // Initialize navigation using useNavigation hook
+
+    const [isLoading, setIsLoading] = useState(true)
+    const openDetailedPage = async (order) => {
+        navigation.navigate("DetailedOrder", { order: order })
+    };
+    return (<View>
         {items.map((item, index) => (
-            <View key={index} style={styles.itemContainer}>
-                <Image source={{ uri: item.image }} style={styles.itemImage} />
-                <View style={styles.itemDetails}>
-                    <View style={styles.itemHeader}>
-                        <Text style={styles.itemName}>{item.name}</Text>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.boldedText}>Attributes: </Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.colour.join(', ')},</Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.occasion.join(', ')},</Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.size.join(', ')},</Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.style.join(', ')},</Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.type.join(', ')}</Text>
-                        </View>
+            // <TouchableOpacity key={index} style={styles.card} onPress={() => { openDetailedPage(item.id) }}>
+            <View key={index} style={styles.card}>
+                <View style={styles.infoContainer}>
+                    <Text style={styles.itemName}>{item.name}</Text>
+                    <View style={styles.textContainer}>
+                        <Text style={styles.boldedText}>Attributes: </Text>
+                        <Text style={styles.text} numberOfLines={1}>{item.attributes.colour.join(', ')},</Text>
+                        <Text style={styles.text} numberOfLines={1}>{item.attributes.occasion.join(', ')},</Text>
+                        <Text style={styles.text} numberOfLines={1}>{item.attributes.size.join(', ')},</Text>
+                        <Text style={styles.text} numberOfLines={1}>{item.attributes.style.join(', ')},</Text>
+                        <Text style={styles.text} numberOfLines={1}>{item.attributes.type.join(', ')}</Text>
                     </View>
-                    <View style={styles.itemFooter}>
-                        <Text style={styles.itemPrice}>Price: ${item.current_price}</Text>
+                    <View style={styles.priceContainer}>
+                        <Text style={styles.boldedText}>Price: </Text>
+
+                        <Text style={styles.itemPrice}>{item.current_price}</Text>
                     </View>
                 </View>
+                <View style={styles.imageContainer}>
+                    {/* <Text style={styles.itemPrice}>{item.current_price}</Text> */}
+                    <Image
+                        key={index}
+                        source={{ uri: item.image }}
+                        style={styles.itemImage}
+                        onLoadStart={() => { setIsLoading(true) }}
+                        onLoadEnd={() => { setIsLoading(false) }}
+                    />
+                    {isLoading && <ActivityIndicator style={styles.itemImage} size="large" color="#eb6e34" />}
+                </View>
             </View>
+            // </TouchableOpacity>
         ))}
-    </View>
-);;
+    </View>)
+};
 const styles = StyleSheet.create({
-    detailSectionHeader: {
-        fontSize: 18,
-        paddingVertical: 12,
-        fontWeight: 'bold',
-        color: COLORS.textBlack,
-        textAlign: 'left'
+    card: {
+        backgroundColor: COLORS.white,
+        borderRadius: 16,
+        elevation: 4,
+        // overflow: 'hidden',
+        paddingLeft: 8,
+        flexDirection: 'row',
+        height: 160,
+        marginHorizontal: 4,
+        marginVertical: 2,
     },
-    itemContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginBottom: 10,
+    priceContainer: {
+        flexDirection: 'row'
     },
-    itemDetails: {
-        flex: 1,
+    imageContainer: {
+        height: '100%',
+        width: '50%',
+        flexDirection: 'row',
+        alignItems: "flex-end",
+        justifyContent: 'flex-end',
+        // marginBottom: 10,
+        marginHorizontal: 8,
+        overflow: 'hidden',
+        padding: 8,
+        borderRadius: 24,
+        overflow: 'hidden'
+    },
+    infoContainer: {
+        height: '100%',
+        width: '45%',
+        paddingVertical: 8,
+        justifyContent: "space-between"
     },
     itemImage: {
-        width: 80,
-        height: 80,
-        marginRight: 10,
-    },
-    itemHeader: {
-        flexDirection: 'column',
-        alignItems: 'center',
+        width: 144, //
+        height: 144,
+        borderRadius: 8,
+        // marginRight: 10,
     },
     itemName: {
-        color: COLORS.secondaryLight,
+        color: COLORS.textBlack,
         fontWeight: 'bold',
         marginBottom: 5,
-    },
-    itemFooter: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
+        textAlign: 'center'
     },
     itemPrice: {
-        color: COLORS.secondaryLight,
+        color: COLORS.textBlack,
     },
     totalPrice: {
         color: COLORS.textBlack,
@@ -73,11 +105,11 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flexDirection: 'row',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap'
         // borderWidth: 2,
     },
     boldedText: {
-        color: COLORS.secondaryLight,
+        color: COLORS.textBlack,
         fontWeight: 'bold',
         // lineHeight: 40,
     },

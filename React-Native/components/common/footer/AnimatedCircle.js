@@ -6,7 +6,7 @@ import { COLORS } from "../../../constants";
 const circleContainerSize = 50;
 
 const Circle = (props) => {
-    circleContainerStyle = useAnimatedStyle(() => {
+    const circleContainerStyle = useAnimatedStyle(() => {
         return {
             transform: [{ translateX: props.circleX.value - circleContainerSize / 2 }],
         }
@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 4,
-        shadowColor: "#000",
+        shadowColor: COLORS.lightWhite,
         shadowOffset: {
             width: 0,
             height: 3,
         },
-        shadowOpacity: 0.95,
+        shadowOpacity: 1,
         shadowRadius: 16,
     },
 });

@@ -25,15 +25,21 @@ const SlidableButton = ({ id, handleSlideEnd }) => {
     const containerWidth = Dimensions.get('window').width - 32;
     const dotSize = 45;
     const threshold = 0.70 * containerWidth;
-
+    const [isAnimated, seIsAnimated] = useState(false);
     const translateX = useSharedValue(0);
     const isCompleted = useSharedValue(false);
     const hideText = useSharedValue(false);
     const checkMarkOpacity = useSharedValue(0);
     const arrowOpacity = useSharedValue(1);
     const textOpacity = useSharedValue(1);
-    const playAnim = (num1, num2) => {
-        animationRef.current.play(num1, num2);
+    const playAnim = () => {
+        if (!isAnimated) {
+            animationRef.current.play();
+            seIsAnimated(true)
+        } else {
+            animationRef.current.play(60, 0);
+            seIsAnimated(false)
+        }
     };
     const gestureHandler = useAnimatedGestureHandler({
         onStart: (_, context) => {
@@ -54,8 +60,14 @@ const SlidableButton = ({ id, handleSlideEnd }) => {
 
             if (isCompleted.value) {
                 checkMarkOpacity.value = Math.min(1, (translateX.value - (containerWidth - 35) / 2) / ((containerWidth - 35) / 2));
+                if (!isAnimated) {
+                    runOnJS(playAnim)();
+                }
             } else {
                 checkMarkOpacity.value = 0
+                if (isAnimated) {
+                    runOnJS(playAnim)()
+                }
             }
 
             if (hideText.value) {
@@ -63,20 +75,11 @@ const SlidableButton = ({ id, handleSlideEnd }) => {
             }
             try {
 
-                const newSpeed = Math.max(0, Math.min(1, newX * 0.003)) * 67;
-                console.log(newSpeed)
-
-                runOnJS(playAnim)(newSpeed, newSpeed+1);
+                // runOnJS(playAnim)(newSpeed, newSpeed + 1);
             } catch (error) {
                 console.error("Error in gesture handler:", error);
 
             }
-            // Move animation forward or backward based on gesture direction
-            // if (newX > 0) {
-            //     animationRef.current.play();
-            // } else {
-            //     animationRef.current.play(-1);
-            // }
         },
         onEnd: () => {
             if (isCompleted.value) {
@@ -155,10 +158,11 @@ const SlidableButton = ({ id, handleSlideEnd }) => {
                                 <LottieView
                                     ref={animationRef}
                                     // progress={animationProgress.value}
-                                    source={require('../../../assets/animation3.json')}
+                                    source={require('../../../assets/animation4.json')}
                                     autoPlay={false}
                                     loop={false}
-                                    style={{ height: 20, width: 40 }}
+                                    speed={2}
+                                    style={{ height: 30, width: 40 }}
                                 />
                                 {/* <Animated.View
                                     style={[{
@@ -212,6 +216,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: 6
     },
     buttonContainer: {
         width: '100%',

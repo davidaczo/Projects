@@ -10,6 +10,7 @@ const LoadingCard = () => {
             <LoadingSkeleton containerStyle={[styles.skeletonItem, styles.skeletonStatus]}></LoadingSkeleton>
             <LoadingSkeleton containerStyle={[styles.skeletonItem, styles.skeletonText]}></LoadingSkeleton>
             <LoadingSkeleton containerStyle={[styles.skeletonItem, styles.skeletonText]}></LoadingSkeleton>
+            <LoadingSkeleton containerStyle={[styles.skeletonItem, styles.skeletonStatus]}></LoadingSkeleton>
             <LoadingSkeleton containerStyle={[styles.skeletonItem, styles.skeletonTotalPrice]}></LoadingSkeleton>
         </View>
     );

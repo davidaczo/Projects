@@ -18,9 +18,9 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { COLORS } from '../../../constants';
 
 const SlidableButton = ({ id, handleSlideEnd }) => {
-    const containerWidth = Dimensions.get('window').width - 32;
+    const containerWidth = Dimensions.get('window').width - 51;
     const dotSize = 45;
-    const threshold = 0.70 * containerWidth;
+    const threshold = 0.63 * containerWidth;
 
     const translateX = useSharedValue(0);
     const isCompleted = useSharedValue(false);
@@ -124,6 +124,12 @@ const SlidableButton = ({ id, handleSlideEnd }) => {
                         if (isCompleted.value) {
                             setTimeout(() => {
                                 handleSlideEnd(id.id)
+                                translateX.value = 0;
+                                isCompleted.value = false;
+                                hideText.value = false;
+                                checkMarkOpacity.value = 0;
+                                arrowOpacity.value = 1;
+                                textOpacity.value = 1;
                             }, 200)
                         }
                     }}>
@@ -154,7 +160,7 @@ const SlidableButton = ({ id, handleSlideEnd }) => {
                     </PanGestureHandler>
                     <Animated.View style={acceptTextAnimatedStyle}>
                         <Text style={styles.buttonText}>
-                            Ready to deliver!
+                            Delivered!
                         </Text>
                     </Animated.View>
                     <View style={{ width: dotSize }}></View>
@@ -169,6 +175,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+        marginVertical: 4
     },
     buttonContainer: {
         width: '100%',
@@ -197,6 +204,7 @@ const styles = StyleSheet.create({
         color: 'white',
         textAlign: 'center',
         fontWeight: 'bold',
+        fontSize: 16
     },
     acceptTextContainer: {
         padding: 4,

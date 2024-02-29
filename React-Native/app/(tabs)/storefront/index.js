@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Switch, StyleSheet, FlatList } from 'react-native';
-import { COLORS } from '../../../constants';
-import Icon from 'react-native-vector-icons/Entypo';
-import i18next, { languageResources } from '../../../utils/i18next';
+import { View, StyleSheet } from 'react-native';
+import i18next from '../../../utils/i18next';
 import { useTranslation } from 'react-i18next';
-import CountryFlag from "react-native-country-flag";
-import languagesList from '../../../constants/languagesList.json';
-import BloomModal from '../../../components/common/modal/BloomModal';
-import Logo from '../../../assets/images/logo.svg'
-import MainButton from '../../../components/common/buttons/MainButton';
-import SecondaryButton from '../../../components/common/buttons/SecondaryButton';
-import RadioButtonRN from 'radio-buttons-react-native';
-import StoreFrontHeader from '../../../components/storeFront/StoreFrontHeader';
-import OptionsList from '../../../components/storeFront/OptionsList';
+import StoreFrontHeader from '../../../components/storeFrontPage/StoreFrontHeader';
+import OptionsList from '../../../components/storeFrontPage/OptionsList';
 
 
 const StoreFrontPage = () => {

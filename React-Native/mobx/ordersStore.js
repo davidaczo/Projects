@@ -1,121 +1,7 @@
 import { makeAutoObservable, observable, action, runInAction } from "mobx";
 import axios from 'axios';
 import orderService from "../api/OrdersApi";
-
-const mapOrder = (apiResponse) => {
-    const orderData = apiResponse.data;
-    const {
-        id,
-        code,
-        status,
-        message,
-        created,
-        billing_address,
-        shipping_address,
-        items,
-    } = orderData[0];
-
-    const mappedItems = items.map((item) => {
-        const {
-            base_price,
-            quantity,
-            name,
-            image,
-            discount_rate,
-            attributes,
-            current_price,
-        } = item;
-
-        const mappedAttributes = Object.entries(attributes).reduce(
-            (acc, [key, value]) => {
-                acc[key] = value.map((attr) => attr.value);
-                return acc;
-            },
-            {}
-        );
-
-        return {
-            base_price,
-            quantity,
-            name,
-            image,
-            discount_rate,
-            attributes: mappedAttributes,
-            current_price,
-        };
-    });
-
-    return {
-        id,
-        code,
-        status,
-        message,
-        created,
-        billing_address,
-        shipping_address,
-        items: mappedItems,
-    };
-};
-
-const mapOrders = (apiResponse) => {
-    const ordersData = apiResponse.data;
-    const orders = ordersData.map((orderData) => {
-        const {
-            id,
-            code,
-            status,
-            message,
-            created,
-            billing_address,
-            shipping_address,
-            items,
-        } = orderData;
-
-        const mappedItems = items.map((item) => {
-            const {
-                base_price,
-                quantity,
-                name,
-                image,
-                discount_rate,
-                attributes,
-                current_price,
-            } = item;
-
-            const mappedAttributes = Object.entries(attributes).reduce(
-                (acc, [key, value]) => {
-                    acc[key] = value.map((attr) => attr.value);
-                    return acc;
-                },
-                {}
-            );
-
-            return {
-                base_price,
-                quantity,
-                name,
-                image,
-                discount_rate,
-                attributes: mappedAttributes,
-                current_price,
-            };
-        });
-
-        return {
-            id,
-            code,
-            status,
-            message,
-            created,
-            billing_address,
-            shipping_address,
-            items: mappedItems,
-        };
-    });
-
-    return orders
-}
-
+import { mapOrder, mapOrders } from "../mapers/orders";
 
 class OrdersStore {
     constructor() {
@@ -127,30 +13,30 @@ class OrdersStore {
     @observable error = null;
     @observable updatingIndex = -1;
     @observable isUnproccedOrder = false;
+    @observable isListEnd = false;
 
-    @action loadOrders = async (partnerId) => {
+    @action loadOrders = async (partnerId, pageNr) => {
         try {
             this.setIsLoading(true);
 
-            const data = await orderService.fetchOrders(partnerId);
-
+            const data = await orderService.fetchOrders(partnerId, pageNr);
+            console.log("fetched data pageNr: ", pageNr, data.length)
             runInAction(() => {
-                let sortedDataList = mapOrders(data).sort((a, b) => {
-                    const dateA = new Date(a.created).getTime();
-                    const dateB = new Date(b.created).getTime();
-                    return dateB - dateA;
-                });
-
-                const registeredStatuses = sortedDataList.filter(item => ["registered"].includes(item.status));
-                const processingStatuses = sortedDataList.filter(item => ["processing"].includes(item.status));
-                const otherStatuses = sortedDataList.filter(item => !["registered", "processing"].includes(item.status));
-
-                sortedDataList = [...registeredStatuses, ...processingStatuses, ...otherStatuses];
-                this.setData(sortedDataList)
-
+                mappedData = mapOrders(data)
+                if (this.data && mappedData.length > 0 && pageNr > 1) {
+                    console.log('concatenating data')
+                    this.setData(this.data.concat(mappedData))
+                } else if (data.length == 0) {
+                    console.log('setting end')
+                    this.setIsListEnd(true);
+                }
+                else {
+                    console.log('setting data')
+                    this.setData(mappedData);
+                    this.setIsListEnd(false);
+                }
                 this.isUnproccedOrder = this.data.some(order => order.status === 'registered');
             });
-
         } catch (error) {
             this.setError(error);
         } finally {
@@ -198,7 +84,11 @@ class OrdersStore {
         this.error = error;
         this.data = null;
     };
-    // action to set error
+
+    @action setIsListEnd(newIsListEnd) {
+        this.isListEnd = newIsListEnd;
+    }
+
 
     @action setIsLoading(newisLoading) {
         this.isLoading = newisLoading;

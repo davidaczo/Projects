@@ -1,21 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS } from '../../../constants';
 import Icon from 'react-native-vector-icons/Entypo';
 import Modal from 'react-native-modal';
 
-const BloomModal = ({ isVisible, onClose, title, children, animationIn, animationOut, backgroundColor, headerTextColor }) => {
+const BloomModal = ({ isVisible, onClose, title, children, animationIn, animationOut, backgroundColor = COLORS.white, headerTextColor, marginTop = 0 }) => {
     return (
         <Modal
-            style={{ margin: 0, flex: 1 }}
+            style={{
+                marginTop: marginTop,
+                margin: 0,
+                flex: 1,
+                borderRadius: marginTop > 0 ? 16 : 10,
+                backgroundColor: backgroundColor,
+            }}
+            onBackdropPress={marginTop ? onClose : null}
+            swipeDirection={marginTop ? 'down' : null}
+            onSwipeComplete={onClose}
             isVisible={isVisible}
             animationIn={animationIn}
             animationOut={animationOut}
             statusBarTranslucent
+            hideModalContentWhileAnimating={true}
             supportedOrientations={['portrait', 'landscape']}
             onBackButtonPress={onClose}>
-            <View style={[styles.modalContainer, { backgroundColor: backgroundColor }]}>
-                <View style={[styles.header]}>
+            <View style={[styles.modalContainer]}>
+                <View style={[styles.header, { marginTop: marginTop > 0 ? 0 : 28 }]}>
                     <TouchableOpacity onPress={onClose} style={{ flex: 1 }}>
                         <Icon name="chevron-left" size={35} color={headerTextColor} />
                     </TouchableOpacity>
@@ -32,8 +42,8 @@ const BloomModal = ({ isVisible, onClose, title, children, animationIn, animatio
 const styles = StyleSheet.create({
     modalContainer: {
         flex: 1,
-        paddingTop: 28,
-        padding: 4
+        borderWidth: 1,
+        borderColor: 'transparent',
     },
     header: {
         width: '100%',
@@ -44,7 +54,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         borderBottomWidth: 1,
         borderBottomColor: COLORS.borderGray,
-        // marginBottom: 12
     },
     headerText: {
         flex: 2,

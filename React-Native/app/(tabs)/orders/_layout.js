@@ -6,23 +6,32 @@ import { COLORS } from '../../../constants';
 import OrderCard from '../../../components/orderPage/orderCard/OrderCard';
 
 
-const OrdersPage = observer(() => {
-  const [isFetching, setIsFetching] = useState(false)
-  const { data, isLoading, error, loadOrders } = OrdersStore;
+const OrdersPage = observer(({ navigation }) => {
+  const [pageNr, setPageNr] = useState(2);
+  const { data, isLoading, error, isListEnd, loadOrders } = OrdersStore;
 
   useEffect(() => {
-    loadOrders(1);
+    loadOrders(1, 1);
   }, []);
 
-  onRefresh = () => {
-    loadOrders(1);
-  }
+  const onRefresh = async () => {
+    await loadOrders(1, 1);
+    setPageNr(2);
+  };
 
-  if (isLoading) {
-    return <ActivityIndicator style={{
-      flex: 1
-    }} size="large" color="#eb6e34" />;
-  }
+  const onEndReached = async () => {
+    console.log("onEndReached", isListEnd, isLoading, pageNr);
+    if (!isListEnd && !isLoading) {
+      await loadOrders(1, pageNr);
+      setPageNr(pageNr + 1);
+    }
+  };
+
+  // if (isLoading) {
+  //   return <ActivityIndicator style={{
+  //     flex: 1
+  //   }} size="large" color="#eb6e34" />;
+  // }
 
   if (error) {
     return <Text>Error: {error.message}</Text>;
@@ -33,17 +42,18 @@ const OrdersPage = observer(() => {
       {data && (
         <FlatList
           data={data}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item, index) => index}
           showsVerticalScrollIndicator={false}
-          initialNumToRender={10}
+          windowSize={10}
+          onEndReached={onEndReached}
           refreshControl={
             <RefreshControl
               colors={[COLORS.orange]}
-              refreshing={isFetching}
-              onRefresh={() => onRefresh()}
+              refreshing={isLoading}
+              onRefresh={onRefresh}
             />}
           renderItem={({ item }) => (
-            <OrderCard order={item} isLast={item == data[data.length - 1]} />
+            <OrderCard order={item} isLast={item == data[data.length - 1]} navigation={navigation} />
           )}
         />
       )}

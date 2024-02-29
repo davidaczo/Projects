@@ -1,13 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
-import MainButton from '../../common/buttons/MainButton';
-import SecondaryButton from '../../common/buttons/SecondaryButton';
+import MainButton from '../../../common/buttons/MainButton';
+import SecondaryButton from '../../../common/buttons/SecondaryButton';
 
 const RegisteredActions = ({ onAccept, onDecline }) => {
     return (
         <View style={styles.processingContainer}>
-            <MainButton onPress={onAccept} text="Accept Order" />
-            <SecondaryButton onPress={onDecline} text="Decline Order" />
+            <MainButton onPress={onAccept} text="Accept" />
+            <SecondaryButton onPress={onDecline} text="Decline" />
         </View>
     );
 };

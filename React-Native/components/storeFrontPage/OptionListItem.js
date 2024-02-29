@@ -7,10 +7,10 @@ const OptionsListItem = ({ text, value, onToggle, onPress, rightIcon }) => {
     return (
         <TouchableOpacity style={styles.listItem} onPress={onPress}>
             <Text style={styles.listText}>{text}</Text>
-            {value && (
+            {value !== undefined && (
                 <Switch
                     value={value}
-                    trackColor={{ true: COLORS.green, false: COLORS.lightGray }}
+                    trackColor={{ true: COLORS.green, false: COLORS.borderGray }}
                     thumbColor={value ? COLORS.orange : COLORS.orange}
                     onValueChange={onToggle}
                 />

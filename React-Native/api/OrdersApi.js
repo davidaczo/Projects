@@ -4,9 +4,9 @@ import axios from 'axios';
 const apiUrl = 'http://3.121.10.45/api';
 
 const orderService = {
-    async fetchOrders(partnerId) {
+    async fetchOrders(partnerId, pageNr = 1) {
         try {
-            const response = await axios.get(`${apiUrl}/partner/${partnerId}/orders/`);
+            const response = await axios.get(`${apiUrl}/partner/${partnerId}/orders?page=${pageNr}`);
             return response.data;
         } catch (error) {
             console.error('Error fetching orders:', error);

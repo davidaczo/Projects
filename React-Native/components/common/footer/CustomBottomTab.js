@@ -35,11 +35,11 @@ export const CustomBottomTab = ({
   const selectIcon = (routeName) => {
     console.log(routeName)
     switch (routeName) {
-      case 'Products':
+      case 'ProductsStack':
         return 'flower-tulip-outline';
-      case 'Orders':
+      case 'OrdersStack':
         return 'text-box-multiple-outline';
-      case 'Store':
+      case 'StoreStack':
         return 'storefront-outline';
     }
   };
@@ -105,13 +105,11 @@ export const CustomBottomTab = ({
 export default CustomBottomTab;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   tabBarContainer: {
     shadowOffset: {
       width: 0,
       height: 22,
+      backgroundColor: 'red',
     },
     shadowColor: 'black',
     shadowOpacity: 1,

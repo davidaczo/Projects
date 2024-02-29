@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     textContainer: {
         flexDirection: 'row',
         paddingHorizontal: 4,
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
     },
     boldedText: {
         color: COLORS.textBlack,

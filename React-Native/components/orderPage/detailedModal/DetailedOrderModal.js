@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, StyleSheet, Modal } from 'react-native'
 import { COLORS } from '../../../constants/theme';
@@ -9,7 +10,7 @@ import RenderAddressSection from './AddressSection';
 import ItemSection from './ItemSection';
 
 const DetailedOrderModal = ({ order, isVisible, onClose }) => {
-    const { id, created, items, billing_address, shipping_address, status } = order;
+    const { id, created, items, message, billing_address, shipping_address, status } = order;
     const billingName = billing_address.first_name + " " + billing_address.last_name;
     const shippingName = shipping_address.first_name + " " + shipping_address.last_name;
 
@@ -22,8 +23,7 @@ const DetailedOrderModal = ({ order, isVisible, onClose }) => {
             onClose={onClose}
             title={"Order #" + id}
             headerTextColor={COLORS.green}
-            backgroundColor={COLORS.white}
-            borderBottom={false}>
+            backgroundColor={COLORS.white}>
             <ScrollView style={styles.modalContainer} showsVerticalScrollIndicator={false}>
 
                 <RenderAddressSection
@@ -42,6 +42,7 @@ const DetailedOrderModal = ({ order, isVisible, onClose }) => {
                     email={billing_address.email}
                     addressName={billing_address.address_name}
                     city={billing_address.city}
+                    message={message}
                 />
 
                 <ItemSection

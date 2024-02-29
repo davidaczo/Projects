@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import OptionListItem from './OptionListItem';
-import BloomModal from '../../components/common/modal/BloomModal';
-import MainButton from '../../components/common/buttons/MainButton';
+import BloomModal from '../common/modal/BloomModal';
+import MainButton from '../common/buttons/MainButton';
 import ModalLanguageItem from './ModalLanguageItem';
 import i18next, { languageResources } from '../../utils/i18next';
 import { useTranslation } from 'react-i18next';
@@ -49,7 +49,6 @@ const OptionsList = () => {
                 animationOut={'slideOutRight'}
                 backgroundColor={COLORS.white}
                 headerTextColor={COLORS.green}
-                borderBottom={true}
             >
                 <View style={styles.modalContainer}>
                     {Object.keys(languageResources).map(item => (
