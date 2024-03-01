@@ -10,9 +10,6 @@ import CustomAlert from '../../../common/alert/CustomAlert';
 import { set } from 'mobx';
 
 AWS.config.update({
-    region: 'eu-central-1',
-    accessKeyId: 'AKIA3OWYAJYHIJZ7VOXD',
-    secretAccessKey: '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'
 })
 
 const s3 = new AWS.S3();
