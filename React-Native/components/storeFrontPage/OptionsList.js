@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import OptionListItem from './OptionListItem';
-import BloomModal from '../common/modal/BloomModal';
-import MainButton from '../common/buttons/MainButton';
-import ModalLanguageItem from './ModalLanguageItem';
 import i18next, { languageResources } from '../../utils/i18next';
 import { useTranslation } from 'react-i18next';
 import languagesList from '../../constants/languagesList.json';
 import { COLORS } from '../../constants';
+import SelectLanguageModal from './SelectLanguageModal';
+import storeService from '../../api/StoreApi';
+import { storeStore } from '../../mobx/storeStore';
 
 const OptionsList = () => {
     const { t } = useTranslation();
@@ -21,7 +21,14 @@ const OptionsList = () => {
     };
 
     const handleStoreToggle = () => {
+        const todaysDate = new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate();
+        if (isStoreOpen) {
+            // storeStore.changeStoreStatus(1, todaysDate, 'closed')
+        } else {
+            // storeStore.changeStoreStatus(1, todaysDate, 'open')
+        }
         setIsStoreOpen((prev) => !prev);
+
     };
 
     return (
@@ -32,38 +39,22 @@ const OptionsList = () => {
                 onToggle={handleStoreToggle}
             />
             <OptionListItem
-                text={t("notifications")}
-                rightIcon={{ name: 'chevron-right', size: 26, color: COLORS.secondaryLight }}
+                text={t("store_scheduler")}
+                rightIcon={{ size: 26, color: COLORS.secondaryLight }}
             />
             <OptionListItem
-                text={t("language")} onPress={() => setVisible(true)}
-                rightIcon={{ name: 'chevron-right', size: 26, color: COLORS.secondaryLight }}
+                text={t("language")}
+                onPress={() => setVisible(true)}
+                rightIcon={{ size: 26, color: COLORS.secondaryLight }}
             />
 
-
-            <BloomModal
+            <SelectLanguageModal
                 isVisible={visible}
-                onClose={() => { setVisible(false); i18next.changeLanguage(initialLanguage) }}
-                title={t("language")}
-                animationIn={'slideInRight'}
-                animationOut={'slideOutRight'}
-                backgroundColor={COLORS.white}
-                headerTextColor={COLORS.green}
-            >
-                <View style={styles.modalContainer}>
-                    {Object.keys(languageResources).map(item => (
-                        <ModalLanguageItem
-                            key={item}
-                            onPress={() => changeLng(item)}
-                            text={languagesList[item].nativeName}
-                            isSelected={item === i18next.language}
-                            isoCode={languagesList[item].flagname}
-                        />
-                    ))}
-
-                    <MainButton onPress={() => { setVisible(false) }} text={t("continueinlng")} />
-                </View>
-            </BloomModal>
+                setVisible={(newValue) => { setVisible(newValue) }}
+                changeLng={changeLng}
+                languagesList={languagesList}
+                initialLanguage={initialLanguage}
+            />
         </View>
     );
 };
@@ -73,9 +64,6 @@ const styles = StyleSheet.create({
         flex: 6,
         width: "100%",
         backgroundColor: COLORS.white,
-    },
-    modalContainer: {
-        // Add any styles for the modal container here
     },
 });
 

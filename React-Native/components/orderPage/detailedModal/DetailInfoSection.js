@@ -5,7 +5,7 @@ const DetailInfoSection = ({ boldedText, infoText }) => {
     return (
         <View style={styles.textContainer}>
             <Text style={styles.boldedText}>{boldedText}</Text>
-            <Text style={styles.text} numberOfLines={3}>{infoText}</Text>
+            <Text style={styles.text} ellipsizeMode='tail' numberOfLines={5}>{infoText}</Text>
         </View>
     )
 
@@ -14,19 +14,22 @@ const DetailInfoSection = ({ boldedText, infoText }) => {
 const styles = StyleSheet.create({
     textContainer: {
         flexDirection: 'row',
-        paddingHorizontal: 4,
-        flexWrap: 'wrap',
+        padding: 4,
+        justifyContent: 'space-between',
     },
     boldedText: {
-        color: COLORS.textBlack,
-        fontWeight: 'bold',
-        lineHeight: 24
+        color: COLORS.textGray,
+        fontWeight: '400',
+        lineHeight: 24,
+        fontSize: 16
     },
     text: {
         marginRight: 8,
-        color: COLORS.textBlack,
-        fontFamily: 'Roboto',
-        lineHeight: 24
+        color: COLORS.textGray,
+        fontWeight: '600',
+        lineHeight: 24,
+        textAlign: 'right',
+        fontSize: 14
     },
 });
 

@@ -117,7 +117,7 @@ const CameraWithButtons = ({ updateOrder }) => {
                     </View>
                 }
             </View>
-            {showAlert && <CustomAlert visible={showAlert} title="Upload failed" message="Error uploading image to server" onClose={() => setShowAlert(false)} />}
+            {showAlert && <CustomAlert visible={showAlert} title="Upload failed" message="Error uploading image to server" onCancel={() => { }} onAccept={() => setShowAlert(false)} />}
         </View >
     );
 };

@@ -1,24 +1,23 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Switch, StyleSheet, ActivityIndicator } from 'react-native';
-import Icon from 'react-native-vector-icons/Entypo';
-import MainButton from '../../common/buttons/MainButton';
-import SecondaryButton from '../../common/buttons/SecondaryButton';
 import BreadCrumbMainButton from './BreadCrumbMainButton';
 import BreadCrumbSecondaryButton from './BreadCrumbSecondaryButton';
 
-const HeaderBreadCrumb = ({ crumbs, onPress, selectedVariantName }) => {
+const HeaderBreadCrumb = ({ crumbs, onPress, selectedVariantName, fullSpace = false }) => {
     if (selectedVariantName == undefined) {
         return <ActivityIndicator style={{
             flex: 1
         }} size="large" color="#eb6e34" />
     }
+
     return (
-        <View style={styles.navigationHeaderContainer}>
+        <View style={[styles.navigationHeaderContainer, { justifyContent: fullSpace ? 'space-between' : 'flex-start' }]}>
             {selectedVariantName && crumbs.map((crumb, index) => {
-                if (crumb.name == selectedVariantName) {
-                    return <BreadCrumbMainButton key={index} text={crumb.name} />
+                const capitalizedName = crumb.name.charAt(0).toUpperCase() + crumb.name.slice(1);
+                if (crumb.name == selectedVariantName.name) {
+                    return <BreadCrumbMainButton key={index} text={capitalizedName} />
                 } else {
-                    return <BreadCrumbSecondaryButton key={index} text={crumb.name} onPress={() => { onPress(crumb) }} />
+                    return <BreadCrumbSecondaryButton key={index} text={capitalizedName} onPress={() => { onPress(crumb) }} />
                 }
             })}
         </View>
@@ -27,13 +26,11 @@ const HeaderBreadCrumb = ({ crumbs, onPress, selectedVariantName }) => {
 
 const styles = StyleSheet.create({
     navigationHeaderContainer: {
-        // margin: 6,
         height: 50,
-        width: '100%',
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
         alignItems: 'center',
-        backgroundColor: 'white',
+        gap: 12,
+        width: '100%',
     }
 });
 

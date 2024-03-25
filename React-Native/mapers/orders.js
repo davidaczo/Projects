@@ -5,11 +5,13 @@ export const mapOrder = (apiResponse) => {
         code,
         status,
         message,
+        card_message,
         dates: { created, delivery_date, delivery_time, },
         billing_address,
         shipping_address,
         items,
     } = orderData[0];
+    console.log("CARD INFOO", card_message)
 
     const mappedItems = items.map((item) => {
         const {
@@ -41,11 +43,13 @@ export const mapOrder = (apiResponse) => {
         };
     });
 
+    console.log("CARD INFOO", card_message)
     return {
         id,
         code,
         status,
         message,
+        card_message,
         created: created,
         delivery_date: delivery_date,
         delivery_time: delivery_time,
@@ -63,12 +67,14 @@ export const mapOrders = (apiResponse) => {
             code,
             status,
             message,
+            card_message,
             dates: { created, delivery_date, delivery_time, },
             billing_address,
             shipping_address,
             items,
         } = orderData;
 
+        console.log("CARD INFOO", card_message)
         const mappedItems = items.map((item) => {
             const {
                 base_price,
@@ -99,11 +105,13 @@ export const mapOrders = (apiResponse) => {
             };
         });
 
+        console.log("CARD INFOO", card_message)
         return {
             id,
             code,
             status,
             message,
+            card_message,
             created: created,
             delivery_date: delivery_date,
             delivery_time: delivery_time,

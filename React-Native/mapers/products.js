@@ -1,9 +1,11 @@
 export const mapProductData = (data) => {
+    console.log("mapProductData", data)
     return data.map((partner) => {
-        const { id, name, product_variants, categories } = partner
+        const { id, name, product_variants, status, categories } = partner
         return {
             id,
             name,
+            status,
             categories: categories.map((category) => {
                 const { id, name } = category
                 return {

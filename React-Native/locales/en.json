@@ -4,5 +4,6 @@
     "language": "Language",
     "logout": "Logout",
     "myStore": "My Store",
-    "continueinlng" : "Continue in English"
+    "continueinlng": "Continue in English",
+    "store_scheduler": "Schedule Closure"
 }

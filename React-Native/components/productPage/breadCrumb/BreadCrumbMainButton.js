@@ -13,20 +13,19 @@ const BreadCrumbMainButton = ({ onPress, text }) => {
 const styles = StyleSheet.create({
     mainButton: {
         height: 40,
-        width: '25%',
-        backgroundColor: COLORS.orange,
-        borderRadius: 25,
+        backgroundColor: COLORS.green,
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: "row",
         marginVertical: 2,
-        elevation: 4,
     },
     buttonText: {
-        flex: 2,
         color: COLORS.white,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        paddingHorizontal: 12,
+        paddingVertical: 8
     },
     content: {
         flex: 1,

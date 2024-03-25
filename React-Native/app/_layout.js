@@ -1,13 +1,12 @@
-import { Stack } from 'expo-router'
-import { useEffect } from 'react';
-import * as NavigationBar from 'expo-navigation-bar';
+import { Stack } from 'expo-router';
+import { observer } from 'mobx-react';
 
-const StackLayout = () => {
+const StackLayout = observer(() => {
     return (
         <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
     );
-};
+});
 
 export default StackLayout;

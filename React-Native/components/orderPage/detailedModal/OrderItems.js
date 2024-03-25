@@ -5,6 +5,7 @@ import { COLORS } from '../../../constants';
 import { useState } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native'; // Import the hook
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../constants/theme';
 
 const OrderItems = ({ items }) => {
     const navigation = useNavigation(); // Initialize navigation using useNavigation hook
@@ -13,26 +14,15 @@ const OrderItems = ({ items }) => {
     const openDetailedPage = async (order) => {
         navigation.navigate("DetailedOrder", { order: order })
     };
-    return (<View>
+    return (<View style={styles.card}>
         {items.map((item, index) => (
             // <TouchableOpacity key={index} style={styles.card} onPress={() => { openDetailedPage(item.id) }}>
-            <View key={index} style={styles.card}>
-                <View style={styles.infoContainer}>
-                    <Text style={styles.itemName}>{item.name}</Text>
-                    <View style={styles.textContainer}>
-                        <Text style={styles.boldedText}>Attributes: </Text>
-                        <Text style={styles.text} numberOfLines={1}>{item.attributes.colour.join(', ')},</Text>
-                        <Text style={styles.text} numberOfLines={1}>{item.attributes.occasion.join(', ')},</Text>
-                        <Text style={styles.text} numberOfLines={1}>{item.attributes.size.join(', ')},</Text>
-                        <Text style={styles.text} numberOfLines={1}>{item.attributes.style.join(', ')},</Text>
-                        <Text style={styles.text} numberOfLines={1}>{item.attributes.type.join(', ')}</Text>
-                    </View>
-                    <View style={styles.priceContainer}>
-                        <Text style={styles.boldedText}>Price: </Text>
-
-                        <Text style={styles.itemPrice}>{item.current_price}</Text>
-                    </View>
-                </View>
+            <View key={index} style={[styles.itemContainer, {
+                borderTopWidth: 1,
+                borderTopColor: COLORS.borderGray,
+                // marginVertical: 8,
+                paddingTop: 8
+            }]}>
                 <View style={styles.imageContainer}>
                     {/* <Text style={styles.itemPrice}>{item.current_price}</Text> */}
                     <Image
@@ -44,6 +34,24 @@ const OrderItems = ({ items }) => {
                     />
                     {isLoading && <ActivityIndicator style={styles.itemImage} size="large" color="#eb6e34" />}
                 </View>
+                <View style={styles.infoContainer}>
+                    <Text style={styles.itemName}>{item.name}</Text>
+                    <View style={styles.bottomContainer}>
+                        <View style={styles.textContainer}>
+                            <Text style={styles.text} numberOfLines={1}>{item.attributes.colour.join(' ,')} | </Text>
+                            <Text style={styles.text} numberOfLines={1}>{item.attributes.occasion.join(' , ')} |</Text>
+                            <Text style={styles.text} numberOfLines={1}>{item.attributes.size.join(' , ')} | </Text>
+                            <Text style={styles.text} numberOfLines={1}>{item.attributes.style.join(' , ')} | </Text>
+                            <Text style={styles.text} numberOfLines={1}>{item.attributes.type.join(' , ')}</Text>
+                        </View>
+                        <View style={styles.priceContainer}>
+                            <Text style={styles.itemPrice}>{item.current_price}</Text>
+                        </View>
+                    </View>
+                    <View style={{ height: 8, }}>
+
+                    </View>
+                </View>
             </View>
             // </TouchableOpacity>
         ))}
@@ -51,52 +59,41 @@ const OrderItems = ({ items }) => {
 };
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: COLORS.white,
-        borderRadius: 16,
-        elevation: 4,
-        // overflow: 'hidden',
-        paddingLeft: 8,
+        marginHorizontal: 8
+    },
+    itemContainer: {
         flexDirection: 'row',
-        height: 160,
-        marginHorizontal: 4,
-        marginVertical: 2,
+        height: 168,
+        justifyContent: 'space-between',
+        // margin: 8,
     },
     priceContainer: {
         flexDirection: 'row'
     },
     imageContainer: {
-        height: '100%',
-        width: '50%',
         flexDirection: 'row',
-        alignItems: "flex-end",
-        justifyContent: 'flex-end',
-        // marginBottom: 10,
-        marginHorizontal: 8,
-        overflow: 'hidden',
-        padding: 8,
-        borderRadius: 24,
-        overflow: 'hidden'
     },
     infoContainer: {
-        height: '100%',
-        width: '45%',
-        paddingVertical: 8,
-        justifyContent: "space-between"
+        width: SCREEN_WIDTH - 206,
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
     },
     itemImage: {
-        width: 144, //
-        height: 144,
-        borderRadius: 8,
+        width: 154, //
+        height: 154,
+        borderRadius: 16,
         // marginRight: 10,
     },
     itemName: {
         color: COLORS.textBlack,
         fontWeight: 'bold',
-        marginBottom: 5,
-        textAlign: 'center'
+        fontSize: 16,
     },
     itemPrice: {
         color: COLORS.textBlack,
+        fontWeight: 'bold',
+        fontSize: 18,
+
     },
     totalPrice: {
         color: COLORS.textBlack,
@@ -105,13 +102,22 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flexDirection: 'row',
-        flexWrap: 'wrap'
-        // borderWidth: 2,
+        width: '70%',
+        flexWrap: 'wrap',
     },
     boldedText: {
         color: COLORS.textBlack,
         fontWeight: 'bold',
         // lineHeight: 40,
+    },
+    bottomContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%'
+    },
+    text: {
+        color: COLORS.textGray
     },
 });
 export default OrderItems;

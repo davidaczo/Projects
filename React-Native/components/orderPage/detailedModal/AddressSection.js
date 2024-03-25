@@ -18,11 +18,15 @@ const RenderAddressSection = ({ title, address, message }) => {
         floor,
         city,
     } = address;
-    const addressStr = `str. ${street}, nr. ${street_number}` +
-        `${flat == "-" ? `, bl. ${flat}` : ''}` +
-        `${staircase == "-" ? `, sc. ${staircase}` : ''}` +
-        `${apartment == "-" ? `, ap. ${apartment}` : ''}` +
-        `${floor == "-" ? `, et. ${floor}` : ''}`;
+
+    const addressComponents = [
+        { label: 'Street:', value: street },
+        { label: 'Street number:', value: street_number },
+        { label: 'Flat:', value: flat },
+        { label: 'Staircase:', value: staircase },
+        { label: 'Apartment:', value: apartment },
+        { label: 'Floor:', value: floor },
+    ];
     return (
         <View style={styles.detailSectionContainer}>
             <Text style={styles.detailSectionHeader}>{title}</Text>
@@ -33,27 +37,27 @@ const RenderAddressSection = ({ title, address, message }) => {
             </View>
             {email != "" && <DetailInfoSection boldedText='E-mail: ' infoText={email} />}
             <DetailInfoSection boldedText='City: ' infoText={city} />
-            <DetailInfoSection boldedText='Address: ' infoText={addressStr} />
-            {message && <DetailInfoSection boldedText='Message: ' infoText={message} />}
+            {addressComponents.map(({ label, value }) => (
+                value && <DetailInfoSection key={label} boldedText={`${label} `} infoText={value} />
+            ))}
         </View>
     )
 };
 const styles = StyleSheet.create({
 
     detailSectionContainer: {
-        width: SCREEN_WIDTH - 8,
         justifyContent: 'center',
         // borderBottomWidth: 1,
         borderColor: COLORS.textBlack,
         paddingBottom: 8,
         margin: 4,
-        borderRadius: 10,
+        borderRadius: 20,
         backgroundColor: COLORS.white,
         elevation: 4,
-        paddingHorizontal: 8
+        padding: 8
     },
     detailSectionHeader: {
-        fontSize: 18,
+        fontSize: 22,
         fontWeight: 'bold',
         color: COLORS.textBlack,
         textAlign: 'left',
@@ -62,13 +66,15 @@ const styles = StyleSheet.create({
     },
     textContainer: {
         flexDirection: 'row',
-        paddingHorizontal: 4,
-        flexWrap: 'wrap'
+        padding: 4,
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
     },
     boldedText: {
-        color: COLORS.textBlack,
-        fontWeight: 'bold',
-        lineHeight: 24
+        color: COLORS.textGray,
+        fontWeight: '400',
+        lineHeight: 24,
+        fontSize: 16,
     },
 });
 export default RenderAddressSection;

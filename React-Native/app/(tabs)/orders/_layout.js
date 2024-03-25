@@ -20,7 +20,6 @@ const OrdersPage = observer(({ navigation }) => {
   };
 
   const onEndReached = async () => {
-    console.log("onEndReached", isListEnd, isLoading, pageNr);
     if (!isListEnd && !isLoading) {
       await loadOrders(1, pageNr);
       setPageNr(pageNr + 1);

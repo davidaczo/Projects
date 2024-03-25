@@ -4,11 +4,10 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window")
 
 const COLORS = {
   green: "#9b9a4c",
-  greenLight: "#bcbc77",
+  greenLight: "#d1d1ae",
   secondary: "#312651",
   secondaryLight: "#444262",
   orange: "#FF7754",
-  gray: "#83829A",
   lightGray: "#f8f6f7",
 
   white: "#FFFFFF",
@@ -18,6 +17,7 @@ const COLORS = {
 
   textBlack: '#313131',
   textGray: '#919191',
+  secondaryTextGray: "#949494",
   borderGray: '#E4E4E4'
 
 };

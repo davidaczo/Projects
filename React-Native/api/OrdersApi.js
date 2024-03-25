@@ -1,4 +1,3 @@
-// api/apiService.js
 import axios from 'axios';
 
 const apiUrl = 'http://3.121.10.45/api';

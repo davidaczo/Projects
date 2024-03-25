@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { COLORS } from '../../../constants';
 
 const SlidableButton = ({ id, handleSlideEnd }) => {
-    const containerWidth = Dimensions.get('window').width - 51;
+    const containerWidth = Dimensions.get('window').width - 64;
     const dotSize = 45;
     const threshold = 0.63 * containerWidth;
 

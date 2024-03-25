@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useMemo, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Keyboard } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import Animated, {
   ColorSpace,
@@ -25,6 +25,7 @@ export const CustomBottomTab = ({
   navigation,
 }) => {
   const { isUnproccedOrder } = OrdersStore;
+  const [isKeyboardActive, setIsKeyboardActive] = useState(false);
 
   const { containerPath, shadowStyle, borderPath, curvedPaths, tHeight } = usePath();
   const circleXCoordinate = useSharedValue(0);
@@ -33,7 +34,6 @@ export const CustomBottomTab = ({
     circleXCoordinate.value = getPathXCenter(currentPath);
   };
   const selectIcon = (routeName) => {
-    console.log(routeName)
     switch (routeName) {
       case 'ProductsStack':
         return 'flower-tulip-outline';
@@ -54,7 +54,19 @@ export const CustomBottomTab = ({
       d: `${containerPath} ${currentPath}`,
     };
   });
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
+      setIsKeyboardActive(true);
+    });
+    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
+      setIsKeyboardActive(false);
+    });
 
+    return () => {
+      keyboardDidShowListener.remove();
+      keyboardDidHideListener.remove();
+    };
+  }, []);
   useEffect(() => {
     progress.value = withTiming(navigation.getState().index + 1);
   }, [navigation.getState().index])
@@ -66,7 +78,7 @@ export const CustomBottomTab = ({
   };
 
   return (
-    <View style={styles.tabBarContainer}>
+    <View style={[styles.tabBarContainer, { bottom: isKeyboardActive ? -100 : 0 }]}>
       <Shadow
         startColor={'rgba(128, 128, 128, 0.2)'}
         offset={[0, 5]}
@@ -106,6 +118,7 @@ export default CustomBottomTab;
 
 const styles = StyleSheet.create({
   tabBarContainer: {
+    elevation: 5,
     shadowOffset: {
       width: 0,
       height: 22,
@@ -113,9 +126,6 @@ const styles = StyleSheet.create({
     },
     shadowColor: 'black',
     shadowOpacity: 1,
-    // shadowRadius: 16.0,
-    // elevation: 24,
-    // opacity: 0.8,
     position: 'absolute',
     bottom: 0,
     width: '100%',

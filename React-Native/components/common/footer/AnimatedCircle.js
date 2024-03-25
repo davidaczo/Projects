@@ -20,14 +20,14 @@ export default Circle;
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        top: -circleContainerSize / 1.1,
+        top: -circleContainerSize / 2,
         width: circleContainerSize,
         borderRadius: circleContainerSize,
         height: circleContainerSize,
         backgroundColor: COLORS.orange,
         justifyContent: 'center',
         alignItems: 'center',
-        elevation: 4,
+        elevation: 0,
         shadowColor: COLORS.lightWhite,
         shadowOffset: {
             width: 0,

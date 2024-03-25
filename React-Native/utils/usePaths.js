@@ -5,7 +5,7 @@ import { SCREEN_WIDTH } from '../constants/theme'
 import { parse } from 'react-native-redash'
 
 const NUM_TABS = 3;
-const SCALE = 0.6;
+const SCALE = 0.65;
 const TAB_BAR_HEIGHT = 54;
 
 const generateTabShapePath = (
@@ -14,16 +14,15 @@ const generateTabShapePath = (
 ) => {
   const adjustedWidth = SCREEN_WIDTH / NUM_TABS;
   const tabX = adjustedWidth * position;
-  console.log("pos:", position)
   const lineGenerator = line().curve(curveBasis);
   const tab = lineGenerator([
     [tabX - 100 * SCALE, 0],
-    [tabX - (65 + 35) * SCALE, 0],
-    [tabX - (50 - 10) * SCALE, -6 * SCALE],
-    [tabX - (50 - 15) * SCALE, (adjustedHeight - 26) * SCALE],
-    [tabX + (50 - 15) * SCALE, (adjustedHeight - 26) * SCALE],
-    [tabX + (50 - 10) * SCALE, -6 * SCALE],
-    [tabX + (65 + 35) * SCALE, 0],
+    [tabX - (100) * SCALE, 0],
+    [tabX - (50) * SCALE, -6 * SCALE],
+    [tabX - (35) * SCALE, (adjustedHeight - 5) * SCALE],
+    [tabX + (35) * SCALE, (adjustedHeight - 5) * SCALE],
+    [tabX + (50) * SCALE, -6 * SCALE],
+    [tabX + (100) * SCALE, 0],
     [tabX + 100 * SCALE, 0],
   ]);
 
@@ -47,22 +46,14 @@ const usePath = () => {
       L0,${tHeight}
       L0,${topRightRadius + borderWidth}
     `;
-    return path.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
+    return path.replace(/\s+/g, ' ').trim();
   }, [tHeight]);
 
   const shadowStyle = {
-    // width: 10,
-    // height: tHeight,
-    // color: 'green',
-    // borderWidth: 20,  // Adjust the shadow radius as needed
-    // opacity: 0.8, // Adjust the shadow opacity as needed
-    // x: 100,
-    // y: 100,
-    // style: { zIndex: 5 }, // Make sure the shadow is on top
   };
   const borderPath = useMemo(() => {
     const topRightRadius = 0;
-    const borderWidth = 3; // Adjust the border width as needed
+    const borderWidth = 8;
     const path = `
       M0,0
       L${SCREEN_WIDTH},0
@@ -70,7 +61,7 @@ const usePath = () => {
       L${topRightRadius + borderWidth},${borderWidth}
       Q${borderWidth},${borderWidth} 0,${topRightRadius + borderWidth}
     `;
-    return path.replace(/\s+/g, ' ').trim(); // Remove extra whitespace
+    return path.replace(/\s+/g, ' ').trim();
   }, []);
 
 

@@ -3,20 +3,22 @@ import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import MainButton from '../buttons/MainButton';
 import SecondaryButton from '../buttons/SecondaryButton';
 
-const CustomAlert = ({ visible, title, message, onClose }) => {
+const CustomAlert = ({ visible, title, message, onCancel, onAccept, children, mainText = "Confirm", secondaryText = "Cancel" }) => {
     return (
         <Modal
+            style={{ borderWidth: 5 }}
             visible={visible}
             transparent={true}
             animationType="fade"
-            onRequestClose={onClose}>
+            onRequestClose={onCancel}>
             <View style={styles.container}>
                 <View style={styles.alert}>
                     <Text style={styles.title}>{title}</Text>
                     {message && <Text style={styles.message}>{message}</Text>}
+                    {children}
                     <View style={styles.processingContainer}>
-                        <SecondaryButton onPress={onClose} width='48%' text="Cancel" />
-                        <MainButton onPress={onClose} width='48%' text="Refuse" />
+                        <SecondaryButton onPress={onCancel} width='48%' text={secondaryText} />
+                        <MainButton onPress={onAccept} width='48%' text={mainText} />
                     </View>
                 </View>
             </View>
@@ -27,7 +29,7 @@ const CustomAlert = ({ visible, title, message, onClose }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.1)',
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -35,18 +37,18 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 16,
         borderRadius: 10,
-        width: '65%',
+        width: '75%',
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 10,
-        textAlign: 'center'
+        textAlign: 'left'
     },
     message: {
         fontSize: 16,
         marginBottom: 20,
-        textAlign: 'center'
+        textAlign: 'left'
     },
     button: {
         fontSize: 18,

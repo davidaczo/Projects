@@ -7,22 +7,26 @@ import BloomModal from '../../common/modal/BloomModal';
 import DetailInfoSection from './DetailInfoSection';
 import RenderAddressSection from './AddressSection';
 import ItemSection from './ItemSection';
+import GeneralInfo from './GeneralInfo';
 
 const DetailedOrderPage = ({ route }) => {
     const { order } = route.params
 
-    const { id, created, items, billing_address, shipping_address, status, message } = order;
+    const { created, items, billing_address, shipping_address, status, message, card_message, delivery_date, delivery_time } = order;
+
     return (
         <View >
-            <View style={styles.statusHeader}>
-                <Text style={styles.createdText}>{created}</Text>
-                <Text style={styles.statusText}>{status}</Text>
-            </View>
             <ScrollView style={styles.modalContainer} showsVerticalScrollIndicator={false}>
+                <GeneralInfo
+                    created={created}
+                    delivery={delivery_date + " " + delivery_time}
+                    status={status}
+                    message={message}
+                    card_message={card_message}
+                />
                 <RenderAddressSection
                     title={"Shipping Address"}
                     address={shipping_address}
-                    message={message}
                 />
 
                 <RenderAddressSection
@@ -50,18 +54,9 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 10,
         elevation: 4
     },
-    statusText: {
-        color: COLORS.textGray,
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    createdText: {
-        color: COLORS.textBlack,
-        fontSize: 16,
-        textAlign: 'center',
-        paddingLeft: 4,
-        fontWeight: 'bold',
-        paddingRight: 4,
+    modalContainer: {
+        width: '100%',
+        padding: 8,
     },
 });
 

@@ -1,19 +1,16 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TextInput } from 'react-native'
 import { useState, useEffect } from 'react';
 import registerNNPushToken, { registerIndieID, getUnreadIndieNotificationInboxCount, getIndieNotificationInbox } from 'native-notify';
 import * as Notifications from 'expo-notifications';
 import { COLORS } from '../../../constants'
 import { observer } from 'mobx-react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import FlowerImage from '../../../constants/flowerImage'
-import productStore from '../../../mobx/productStore';
+import { productStore } from '../../../mobx/productStore';
 import { FlatList, RefreshControl } from 'react-native-gesture-handler';
-import { SCREEN_HEIGHT } from '../../../constants/theme';
-import BloomModal from '../../../components/common/modal/BloomModal';
-import MainButton from '../../../components/common/buttons/MainButton';
-import ProductDetailsEdit from '../../../components/productPage/ProductDetailsEdit';
-import { set } from 'mobx';
-import ProductCard from '../../../components/productPage/ProductCard';
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from '../../../constants/theme';
+import HeaderBreadCrumb from '../../../components/productPage/breadCrumb/HeaderBreadCrumb';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import ProductListHeader from '../../../components/productPage/productList/ProductListHeader';
+import ProductList from '../../../components/productPage/productList/ProductList';
 
 const handleNotificationId = async () => {
   registerIndieID('test1', 9850, 'YcP3wRuqi1RbGXiH5yt5kC');
@@ -28,9 +25,12 @@ const handleNotificationId = async () => {
 
 const Home = observer(({ navigation }) => {
   registerNNPushToken(9850, 'YcP3wRuqi1RbGXiH5yt5kC');
+  const allCategory = { id: 0, name: 'All' }
   const [pageNr, setPageNr] = useState(2);
-  const [productVariantIndex, setProductVariantIndex] = useState(0);
-  const { data, isLoading, error, isListEnd, setIsListEnd, loadProducts, loadProduct } = productStore
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(allCategory);
+  const [isLoadingByCategory, setIsLoadingByCategory] = useState(false);
+  const { data, isLoading, error, isListEnd, loadProducts } = productStore
   const requestNotificationPermission = async () => {
     if (Platform.OS === 'android') {
       await Notifications.setNotificationChannelAsync('default', {
@@ -69,7 +69,35 @@ const Home = observer(({ navigation }) => {
     requestNotificationPermission();
     handleNotificationId();
     loadProducts(1, 1);
+    productStore.loadCategories(1);
   }, []);
+
+  useEffect(() => {
+    setIsLoadingByCategory(true);
+    if (searchQuery.length > 0) {
+      if (selectedCategory.id == 0) {
+        productStore.loadProductsBySearchQuery(1, searchQuery, 1);
+      } else {
+        productStore.loadProductsBySearchQuery(1, searchQuery, 1, selectedCategory.id);
+      }
+    } else {
+      if (selectedCategory.id == 0) {
+        loadProducts(1, 1);
+      } else {
+        productStore.loadProductsByCategory(1, selectedCategory.id, 1);
+      }
+    }
+
+
+    setTimeout(() => {
+      setIsLoadingByCategory(false);
+    }, 1000);
+  }, [selectedCategory])
+
+  useEffect(() => {
+    productStore.loadProductsBySearchQuery(1, searchQuery, 1, selectedCategory.id)
+
+  }, [searchQuery])
 
   const onRefresh = async () => {
     await loadProducts(1, 1);
@@ -83,87 +111,37 @@ const Home = observer(({ navigation }) => {
     }
   };
 
-
   if (error) {
     return <Text>Error: {error.message}</Text>;
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      {data && <FlatList
-        style={{ flex: 1 }}
-        data={data}
-        key={(item) => item.id}
-        keyExtractor={(item, index) => item.id + index}
-        showsVerticalScrollIndicator={false}
-        numColumns={2}
-        initialNumToRender={20}
-        contentContainerStyle={{
-          marginBottom: 100,
-        }}
-        onEndReached={onEndReached}
-        onEndReachedThreshold={0.5}
-        refreshControl={
-          <RefreshControl
-            colors={[COLORS.orange]}
-            refreshing={isLoading} // Use isRefreshing state
-            onRefresh={() => onRefresh()}
-          />}
-        renderItem={({ item, index }) => (
-          <ProductCard item={item} index={index} />
-        )
-        }
+    <SafeAreaView style={styles.container}>
+      <ProductListHeader
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        allCategory={allCategory}
+        categories={productStore.categories}
       />
+      {data && !isLoadingByCategory &&
+        <ProductList
+          data={data}
+          isLoading={isLoading}
+          onEndReached={onEndReached}
+          onRefresh={onRefresh}
+        />
       }
     </SafeAreaView >
   )
 }
 )
 const styles = StyleSheet.create({
-  itemContainer: {
-    width: '50%',
-    height: SCREEN_HEIGHT / 3,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    padding: 4
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
   },
-  cardItem: {
-    height: '100%',
-    width: '100%',
-    borderRadius: 16
-  },
-  imageContainer: {
-    height: "75%",
-    width: "100%",
-    borderWidth: 1,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16
-  },
-  cardInfoContainer: {
-    height: '25%',
-    width: '100%',
-    alignItems: 'center',
-    borderBottomLeftRadius: 16,
-    borderBottomRightRadius: 16,
-    backgroundColor: COLORS.borderGray,
 
-    borderWidth: 1,
-    borderColor: COLORS.borderGray,
-  },
-  product_variants: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: 8,
-    paddingVertical: 4
-  },
-  itemName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: COLORS.textBlack,
-  },
-  product_variantsText: {
-    fontSize: 12,
-  }
 });
 export default Home;

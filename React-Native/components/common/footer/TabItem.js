@@ -34,7 +34,7 @@ const TabItem = ({
   const labelPosition = getPathXCenterByIndex(curvedPaths, index);
 
   const tabStyle = useAnimatedStyle(() => {
-    const translateY = animatedActiveIndex.value - 1 === index ? -35 : 12;
+    const translateY = animatedActiveIndex.value - 1 === index ? -13 : 12;
     const iconPositionX = iconPosition - index * ICON_SIZE;
     return {
       width: ICON_SIZE,
@@ -42,16 +42,6 @@ const TabItem = ({
       transform: [
         { translateY: withTiming(translateY) },
         { translateX: iconPositionX - ICON_SIZE / 2 },
-      ],
-    };
-  });
-
-  const labelContainerStyle = useAnimatedStyle(() => {
-    const translateY = animatedActiveIndex.value - 1 === index ? 36 : 36;
-    return {
-      transform: [
-        // { translateY: withTiming(translateY) },
-        // { translateX: labelPosition - LABEL_WIDTH / 2 },
       ],
     };
   });
@@ -75,7 +65,7 @@ const TabItem = ({
 
   return (
     <>
-      <Animated.View style={[tabStyle]}>
+      <Animated.View style={[tabStyle, styles.container]}>
         <Pressable
           testID={`tab${label}`}
           hitSlop={{ top: 30, bottom: 30, left: 50, right: 50 }}
@@ -98,6 +88,9 @@ const TabItem = ({
 export default TabItem;
 
 const styles = StyleSheet.create({
+  container: {
+    elevation: 5
+  },
   labelContainer: {
     position: 'absolute',
     alignItems: 'center',

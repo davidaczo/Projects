@@ -20,18 +20,15 @@ class OrdersStore {
             this.setIsLoading(true);
 
             const data = await orderService.fetchOrders(partnerId, pageNr);
-            console.log("fetched data pageNr: ", pageNr, data.length)
             runInAction(() => {
                 mappedData = mapOrders(data)
+
                 if (this.data && mappedData.length > 0 && pageNr > 1) {
-                    console.log('concatenating data')
                     this.setData(this.data.concat(mappedData))
-                } else if (data.length == 0) {
-                    console.log('setting end')
+                } else if (mappedData.length == 0) {
                     this.setIsListEnd(true);
                 }
                 else {
-                    console.log('setting data')
                     this.setData(mappedData);
                     this.setIsListEnd(false);
                 }

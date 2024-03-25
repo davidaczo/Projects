@@ -12,8 +12,7 @@ const CameraModal = ({
         <Modal
             visible={isVisible}
             transparent={true}
-            animationType="fade"
-            onRequestClose={onClose}>
+            animationType="fade">
             <View style={styles.modalContainer}>
                 <View style={styles.headerContainer}>
                     <TouchableOpacity style={styles.closeButton} onPress={onClose}>
