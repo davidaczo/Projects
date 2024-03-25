@@ -4,4 +4,4 @@
 
 -React-Spring: is my biggest full stack project I started during my university years, and continued after graduation. A React application with SpringBoot backend. It could be used to view different observations(Like a bird observation would contain: the observation coordinates and details about the bird's species, age etc.) on a full-sized map. It contains hibernate, postgresql, a lot of spring libraries on the backend part, and react native with redux on the frontend part.
 
-Thank you for your time and consideration, I appreciate your attention to my side projects.
+Thank you for your time, I appreciate your attention to my side projects.
