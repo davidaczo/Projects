@@ -1,3 +1,5 @@
+-Android/creasunmi: The inspiration came from having a base project for all my android projects. I added a well-planned redux base to the project and a well-planned navigation.
+
 -KMM: Kotlin Mobile Multi Platform project. I have ui components in Swift and Kotlin for IOs/Android devices and a common Model and Controller layer with redux. The common layers can be found in the shared part. I use a database and have different states from each screen on.
 
 -React-Native: is the project that I'm currently working on, I want to make an administration app for shops, where they can upload products, edit their attributes, orders and store management.I added a well-planned core to the project with expo, mobx, react-navigation etc..
