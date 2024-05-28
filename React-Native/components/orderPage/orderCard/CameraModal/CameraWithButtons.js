@@ -7,7 +7,7 @@ import MainButton from '../../../common/buttons/MainButton';
 import SecondaryButton from '../../../common/buttons/SecondaryButton';
 import AWS from 'aws-sdk';
 import CustomAlert from '../../../common/alert/CustomAlert';
-import { set } from 'mobx';
+import { has, set } from 'mobx';
 
 AWS.config.update({
 })
@@ -38,13 +38,14 @@ const CameraWithButtons = ({ updateOrder }) => {
     const [photoUri, setPhotoUri] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
     const [photoButtonPressed, setPhotoButtonPressed] = useState(false);
-    useEffect(() => {
-        const getCameraAccess = async () => {
-            const { status } = await Camera.requestCameraPermissionsAsync();
-            setHasPermission(status === 'granted');
-        };
-        getCameraAccess();
 
+    const getCameraAccess = async () => {
+        // const { status } = await Camera.requestCameraPermissionsAsync();
+        // setHasPermission(status === 'granted');
+    };
+
+    useEffect(() => {
+        // getCameraAccess();
     }, []);
 
     const takePicture = async () => {
@@ -69,7 +70,7 @@ const CameraWithButtons = ({ updateOrder }) => {
         let uploadSuccess = false;
 
         try {
-            const fileData = await fetch(filePath).then(response => response.blob());
+            // const fileData = await fetch(filePath).then(response => response.blob());
             // await uploadFileToS3(bucketName, fileName, fileData);
             uploadSuccess = true;
         } catch (error) {
@@ -117,6 +118,7 @@ const CameraWithButtons = ({ updateOrder }) => {
                     </View>
                 }
             </View>
+            {/* {hasPermission === false && <Text>No access to camera</Text>} */}
             {showAlert && <CustomAlert visible={showAlert} title="Upload failed" message="Error uploading image to server" onCancel={() => { }} onAccept={() => setShowAlert(false)} />}
         </View >
     );

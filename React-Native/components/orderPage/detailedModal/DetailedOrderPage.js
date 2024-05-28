@@ -11,7 +11,13 @@ import GeneralInfo from './GeneralInfo';
 
 const DetailedOrderPage = ({ route }) => {
     const { order } = route.params
-
+    //print all order items
+    console.log("ORDER11", order.items)
+    let total = order.items.reduce((acc, item) => {
+        return acc + parseFloat(item.base_price) * item.quantity;
+    }, 0).toFixed(2);
+    console.log("ORDER22", order)
+    // , order.items.reduce(order => order.base_price, 0))
     const { created, items, billing_address, shipping_address, status, message, card_message, delivery_date, delivery_time } = order;
 
     return (
@@ -23,6 +29,7 @@ const DetailedOrderPage = ({ route }) => {
                     status={status}
                     message={message}
                     card_message={card_message}
+                    totalPrice={total}
                 />
                 <RenderAddressSection
                     title={"Shipping Address"}

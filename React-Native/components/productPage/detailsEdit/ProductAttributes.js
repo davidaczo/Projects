@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLORS } from '../../../constants';
+import { productStore } from '../../../mobx/productStore';
+import { authStore } from '../../../mobx/authStore';
 
-const ProductAttributes = ({ price, productVariant }) => {
+const ProductAttributes = ({ productId, price, productVariant }) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [partnerId, setPartnerId] = useState(authStore.partnerId); // authStore.partnerId
     const [editablePrice, setEditablePrice] = useState("0");
     const priceInputRef = useRef(null);
 
@@ -23,9 +26,10 @@ const ProductAttributes = ({ price, productVariant }) => {
         setIsEditing(true);
     };
 
-    const handleSavePress = () => {
+    const handleSavePress = async () => {
         setIsEditing(false);
-        // Save logic here
+        console.log(productVariant)
+        await productStore.changeProductPrice(partnerId, productId, productVariant.id, editablePrice)
     };
 
     const handlePriceChange = (text) => {

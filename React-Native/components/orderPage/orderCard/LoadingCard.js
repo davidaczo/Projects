@@ -39,13 +39,10 @@ const LoadingCard = () => {
 const styles = StyleSheet.create({
     skeletonContainer: {
         borderBottomWidth: 1,
-        flexDirection: 'row',
         justifyContent: 'space-between',
         borderBottomColor: '#ddd',
         flexDirection: 'column',
-        backgroundColor: COLORS.lightGray,
         padding: 16,
-        flexDirection: 'column',
         margin: 8,
         backgroundColor: COLORS.white,
         borderRadius: 10,
@@ -99,8 +96,6 @@ const styles = StyleSheet.create({
     },
     detailContainer: {
         flexDirection: 'row',
-        alignItems: 'flex-start', // Align items to the start of the container
-
         alignItems: 'center',
     },
     priceArrowWrapper: {

@@ -40,7 +40,7 @@ const ProductCard = ({ item, index }) => {
                 />
                 <View style={styles.cardInfoContainer}>
                     <Text style={styles.itemName}>{item.name}</Text>
-                    <Text style={styles.itemPrice}>{"from " + item.product_variants[cheapestProductVariantIndex].current_price + " lei"}</Text>
+                    <Text style={styles.itemPrice}>{"from " + item.product_variants[cheapestProductVariantIndex].base_price + " lei"}</Text>
 
                 </View>
             </View>

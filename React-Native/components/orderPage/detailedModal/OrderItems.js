@@ -14,46 +14,50 @@ const OrderItems = ({ items }) => {
     const openDetailedPage = async (order) => {
         navigation.navigate("DetailedOrder", { order: order })
     };
+
+    console.log("ORDERITEMS", items)
     return (<View style={styles.card}>
         {items.map((item, index) => (
-            // <TouchableOpacity key={index} style={styles.card} onPress={() => { openDetailedPage(item.id) }}>
             <View key={index} style={[styles.itemContainer, {
-                borderTopWidth: 1,
-                borderTopColor: COLORS.borderGray,
-                // marginVertical: 8,
-                paddingTop: 8
+                borderBottomWidth: 1,
+                borderBottomColor: COLORS.borderGray,
+                paddingTop: 8,
+                paddingBottom: 4
             }]}>
-                <View style={styles.imageContainer}>
-                    {/* <Text style={styles.itemPrice}>{item.current_price}</Text> */}
-                    <Image
-                        key={index}
-                        source={{ uri: item.image }}
-                        style={styles.itemImage}
-                        onLoadStart={() => { setIsLoading(true) }}
-                        onLoadEnd={() => { setIsLoading(false) }}
-                    />
-                    {isLoading && <ActivityIndicator style={styles.itemImage} size="large" color="#eb6e34" />}
+                <View style={{ flexDirection: 'row' }}>
+                    <Text style={{ color: COLORS.textGray }}>{"Quantity: " + item.quantity}</Text>
+                    {/* <Text>{item.attributes.size.toString()}</Text> */}
                 </View>
-                <View style={styles.infoContainer}>
-                    <Text style={styles.itemName}>{item.name}</Text>
-                    <View style={styles.bottomContainer}>
-                        <View style={styles.textContainer}>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.colour.join(' ,')} | </Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.occasion.join(' , ')} |</Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.size.join(' , ')} | </Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.style.join(' , ')} | </Text>
-                            <Text style={styles.text} numberOfLines={1}>{item.attributes.type.join(' , ')}</Text>
-                        </View>
-                        <View style={styles.priceContainer}>
-                            <Text style={styles.itemPrice}>{item.current_price}</Text>
-                        </View>
+                <View style={{ flexDirection: "row", justifyContent: 'space-between', width: '100%' }}>
+                    <View style={styles.imageContainer}>
+                        <Image
+                            key={index}
+                            source={{ uri: item.image }}
+                            style={styles.itemImage}
+                            onLoadStart={() => { setIsLoading(true) }}
+                            onLoadEnd={() => { setIsLoading(false) }}
+                        />
+                        {isLoading && <ActivityIndicator style={styles.itemImage} size="large" color="#eb6e34" />}
                     </View>
-                    <View style={{ height: 8, }}>
-
+                    <View style={styles.infoContainer}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                        <View style={styles.bottomContainer}>
+                            <View style={styles.textContainer}>
+                                <Text style={styles.text} numberOfLines={1}>{item.attributes.colour.join(' ,')} | </Text>
+                                <Text style={styles.text} numberOfLines={1}>{item.attributes.occasion.join(' , ')} |</Text>
+                                <Text style={styles.text} numberOfLines={1}>{item.attributes.size.join(' , ')} | </Text>
+                                <Text style={styles.text} numberOfLines={1}>{item.attributes.style.join(' , ')} | </Text>
+                                <Text style={styles.text} numberOfLines={1}>{item.attributes.type.join(' , ')}</Text>
+                            </View>
+                            <View style={styles.priceContainer}>
+                                <Text style={styles.itemPrice}>{item.base_price}</Text>
+                            </View>
+                        </View>
+                        <View style={{ height: 8, }}>
+                        </View>
                     </View>
                 </View>
             </View>
-            // </TouchableOpacity>
         ))}
     </View>)
 };
@@ -62,13 +66,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 8
     },
     itemContainer: {
-        flexDirection: 'row',
-        height: 168,
+        height: 170,
         justifyContent: 'space-between',
         // margin: 8,
     },
     priceContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        paddingRight: 8,
+        height: '100%',
     },
     imageContainer: {
         flexDirection: 'row',
@@ -79,8 +84,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     itemImage: {
-        width: 154, //
-        height: 154,
+        width: 134, //
+        height: 134,
         borderRadius: 16,
         // marginRight: 10,
     },
@@ -114,7 +119,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
     },
     text: {
         color: COLORS.textGray

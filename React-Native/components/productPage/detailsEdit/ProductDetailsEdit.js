@@ -18,11 +18,12 @@ const ProductDetailsEdit = observer(({ route }) => {
     const [selectedDeactivation, setSelectedDeactivation] = useState(0);
     const [price, setPrice] = useState(0);
     const mappedProductVariants = product_variants ? product_variants.map((variant) => {
-        const { attributes, current_price, img } = variant;
+        const { attributes, base_price, img, id } = variant;
         const { size } = attributes;
         return {
+            id: id,
             name: size[0],
-            current_price: current_price,
+            base_price: base_price,
             image: img,
             attributes: attributes,
         };
@@ -35,16 +36,16 @@ const ProductDetailsEdit = observer(({ route }) => {
     }
 
     useEffect(() => {
-        console.log(productVariant)
+        console.log("selectedProduct", selectedProduct)
         setProductVariant(mappedProductVariants.filter((variant, index) => index == id)[0]);
         if (productVariant) {
-            setPrice(productVariant.current_price);
+            setPrice(productVariant.base_price);
         }
     }, [mappedProductVariants.size, selectedProduct]);
 
     useEffect(() => {
         if (productVariant) {
-            setPrice(productVariant.current_price);
+            setPrice(productVariant.base_price);
         }
     }, [productVariant]);
     if (productVariant == null) {
@@ -64,6 +65,7 @@ const ProductDetailsEdit = observer(({ route }) => {
                     <Image style={styles.imageContainer} source={{ uri: productVariant.image }} />
 
                     <ProductAttributes
+                        productId={selectedProduct.id}
                         price={price}
                         productVariant={productVariant}
                     />
@@ -148,7 +150,6 @@ const styles = StyleSheet.create({
         paddingVertical: 8,
         paddingHorizontal: 16,
         marginBottom: 8,
-        backgroundColor: COLORS.white,
         borderRadius: 10,
         elevation: 4
     },

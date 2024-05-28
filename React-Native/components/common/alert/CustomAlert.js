@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
 import MainButton from '../buttons/MainButton';
 import SecondaryButton from '../buttons/SecondaryButton';
+import { COLORS } from '../../../constants';
 
-const CustomAlert = ({ visible, title, message, onCancel, onAccept, children, mainText = "Confirm", secondaryText = "Cancel" }) => {
+const CustomAlert = ({ visible, title, message, onCancel = null, onAccept, children, mainText = "Confirm", secondaryText = "Cancel" }) => {
     return (
         <Modal
             style={{ borderWidth: 5 }}
@@ -17,8 +18,15 @@ const CustomAlert = ({ visible, title, message, onCancel, onAccept, children, ma
                     {message && <Text style={styles.message}>{message}</Text>}
                     {children}
                     <View style={styles.processingContainer}>
-                        <SecondaryButton onPress={onCancel} width='48%' text={secondaryText} />
-                        <MainButton onPress={onAccept} width='48%' text={mainText} />
+                        {onCancel ?
+                            <View>
+                                <SecondaryButton onPress={onCancel} width='48%' text={secondaryText} />
+                                <MainButton onPress={onAccept} width='48%' text={mainText} />
+                            </View>
+
+                            :
+                            <MainButton onPress={onAccept} width='100%' text={mainText} />
+                        }
                     </View>
                 </View>
             </View>

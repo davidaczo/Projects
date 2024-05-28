@@ -5,7 +5,7 @@ import { COLORS } from '../../../constants';
 import { SCREEN_WIDTH } from '../../../constants/theme';
 import StatusContainer from '../StatusContainer';
 
-const GeneralInfo = ({ created, delivery, status, message, card_message }) => {
+const GeneralInfo = ({ created, delivery, status, message, card_message, totalPrice }) => {
     return (
         <View style={styles.detailSectionContainer}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight: 8 }}>
@@ -14,7 +14,7 @@ const GeneralInfo = ({ created, delivery, status, message, card_message }) => {
             </View>
             <DetailInfoSection boldedText='Created: ' infoText={created} />
             <DetailInfoSection boldedText='Delivery: ' infoText={delivery} />
-            <DetailInfoSection boldedText='Price: ' infoText={"123.4"} />
+            <DetailInfoSection boldedText='Price: ' infoText={totalPrice} />
             {card_message && <DetailInfoSection boldedText='Card message: ' infoText={card_message} />}
             {message && <DetailInfoSection boldedText='Message: ' infoText={message} />}
         </View>

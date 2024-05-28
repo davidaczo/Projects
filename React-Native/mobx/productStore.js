@@ -22,6 +22,7 @@ class ProductStore {
         try {
             this.setIsLoading(true);
             const data = await productsService.fetchProducts(partnerId, pageNr);
+            // console.log("DATa", data)
             if (this.data && data.length > 0 && pageNr > 1) {
                 this.setData(this.data.concat(mapProductMainData(data)))
             } else if (data.length == 0) {
@@ -55,12 +56,24 @@ class ProductStore {
     @action changeProductStatus = async (productId, partnerId, deactivationText) => {
         try {
             const data = await productsService.changeStatus(productId, partnerId, deactivationText);
+            console.log("MAPPING", [data])
             this.setSelectedProduct(mapProductData([data])[0])
         } catch (error) {
             this.setError(error);
         } finally {
             this.setIsLoadingProduct(false);
 
+        }
+    }
+
+    @action changeProductPrice = async (partnerId, productId, productVariantId, price) => {
+        try {
+            console.log('changeProductPrice', partnerId, productId, productVariantId, price)
+            const data = await productsService.changePrice(partnerId, productId, productVariantId, price);
+            console.log("mapping", [data])
+            // this.setSelectedProduct(mapProductData([data]))
+        } catch (error) {
+            this.setError(error);
         }
     }
 
@@ -103,7 +116,7 @@ class ProductStore {
             this.setIsLoading(true);
             let data;
             if (categoryId) {
-                data = await productsService.fetchProductsBySearchQuery(partnerId, searchQuery, pageNr, categoryId);
+                data = await productsService.fetchProductsBySearchQueryAndCategoryId(partnerId, searchQuery, pageNr, categoryId);
             } else {
                 data = await productsService.fetchProductsBySearchQuery(partnerId, searchQuery, pageNr);
             }

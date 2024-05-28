@@ -2,15 +2,23 @@ import React from 'react';
 import { FlatList, RefreshControl } from 'react-native-gesture-handler';
 import { COLORS } from '../../../constants';
 import ProductCard from './ProductCard';
-import { View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 
 const ProductList = ({ data, isLoading, onEndReached, onRefresh }) => {
+    console.log("ISLOADING", isLoading)
+    // if (isLoading) {
+    //     return <ActivityIndicator
+    //         style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+    //         size="large"
+    //         color={COLORS.orange}
+    //     />
+    // }
     return (
         <FlatList
             style={{ flex: 1 }}
             data={data}
             key={(item) => item.id}
-            keyExtractor={(item, index) => item.id + index}
+            keyExtractor={(item, index) => index}
             showsVerticalScrollIndicator={false}
             numColumns={2}
             initialNumToRender={20}

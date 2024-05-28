@@ -6,7 +6,6 @@ import storeService from "../api/StoreApi";
 class StoreStore {
     constructor() {
         makeAutoObservable(this);
-        this.disableAlertActive = false;
     }
 
     @action
@@ -14,7 +13,6 @@ class StoreStore {
         try {
             console.log(date, newStatus)
             const data = await storeService.updateOrder(partnerId, date, newStatus);
-            console.log("Store status updated", data);
             return data.success;
         } catch (error) {
             console.error(error);

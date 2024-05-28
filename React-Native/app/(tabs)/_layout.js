@@ -8,10 +8,13 @@ import StoreFrontPage from './storefront';
 import { useEffect, useState } from 'react';
 import * as NavigationBar from 'expo-navigation-bar';
 import DetailedOrderPage from '../../components/orderPage/detailedModal/DetailedOrderPage';
-import { Switch, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 import ProductDetailsEdit from '../../components/productPage/detailsEdit/ProductDetailsEdit';
 import { productStore } from '../../mobx/productStore';
 import { observer } from 'mobx-react';
+import { authStore } from '../../mobx/authStore';
+import LoginPage from '../../components/loginPage/loginPage';
+import { Switch } from 'react-native-switch';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -83,11 +86,7 @@ const ProductsStack = observer(() => {
           headerRight: () => (
             <View style={{ padding: 8, paddingTop: 12 }}>
               <Switch
-                style={{ justifyContent: 'center', transform: [{ scaleX: 1.2 }, { scaleY: 1.2 }] }}
                 value={productStore.isProductActive}
-                trackColor={{ true: COLORS.orange, false: COLORS.borderGray }}
-                thumbColor={COLORS.white}
-                pressedColor={COLORS.orange}
                 onValueChange={async () => {
                   if (productStore.isProductActive) {
                     productStore.setDisableAlertActive()
@@ -96,6 +95,17 @@ const ProductsStack = observer(() => {
                   await handleStatusCHange();
                 }
                 }
+                disabled={false}
+                activeText={''}
+                inActiveText={''}
+                circleSize={15}
+                barHeight={24}
+                circleBorderWidth={0}
+                backgroundActive={COLORS.green}
+                backgroundInactive={COLORS.secondaryTextGray}
+                circleActiveColor={COLORS.white}
+                circleInActiveColor={COLORS.white}
+                switchWidthMultiplier={3} // multipled by the `circleSize` prop to calculate total width of the Switch
               />
             </View>
           )
@@ -129,7 +139,10 @@ const OrdersStack = () => {
       <Stack.Screen
         name="DetailedOrder"
         component={DetailedOrderPage}
-        options={{ title: 'Orders', headerStyle: { borderWidth: 0 } }}
+        options={({ route }) => ({
+          title: route.params?.title ?? 'Edit Product', headerStyle: { borderWidth: 0 },
+          headerTintColor: route.params?.statusColor ?? COLORS.green,
+        })}
         initialParams={{ order: null }}
       />
       <Stack.Screen
@@ -156,15 +169,49 @@ const StoreStack = () => (
   </Stack.Navigator>
 );
 
-const BottomTabs = observer(() => {
-  useEffect(() => {
-    const colorChange = async () => {
-      await NavigationBar.setBackgroundColorAsync('#f2f2f2')
-      await NavigationBar.setButtonStyleAsync("dark")
-    }
-    colorChange()
-  }, [])
+const colorChange = async () => {
+  await NavigationBar.setBackgroundColorAsync('#f2f2f2')
+  await NavigationBar.setButtonStyleAsync("dark")
+}
 
+const fetchCredentials = async () => {
+  await authStore.fetchCredentials()
+}
+
+const BottomTabs = observer(() => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+    colorChange();
+    async function fetchData() {
+      await authStore.fetchCredentials()
+    }
+    fetchData();
+    // fetchCredentials();
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  }, [])
+  if (isLoading) {
+    return <ActivityIndicator style={{
+      flex: 1
+    }} size="large" color="#eb6e34" />;
+
+  }
+
+  if (authStore.isLoggedIn === false) {
+    return (
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}>
+        <Stack.Screen
+          name="Login"
+          component={LoginPage}
+        />
+      </Stack.Navigator>)
+  };
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }} style={{ elevation: 5, }} tabBar={props =>
       <CustomBottomTab style={{ elevation: 5 }}  {...props} />

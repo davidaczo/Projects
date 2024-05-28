@@ -1,6 +1,7 @@
-import axios from 'axios';
+import { BASE_URL, DEV_URL } from '../constants/values';
+import axios from './Axios'
 
-const apiUrl = 'http://3.121.10.45/api';
+const apiUrl = DEV_URL;
 
 const orderService = {
     async fetchOrders(partnerId, pageNr = 1) {
@@ -29,6 +30,7 @@ const orderService = {
                 `${apiUrl}/partner/${partnerId}/orders/${orderId}`,
                 { status: newStatus }
             );
+            console.log("UPDATE ORDER RESPONSE", response.data)
             return response.data;
         } catch (error) {
             console.error('Error updating order:', error);

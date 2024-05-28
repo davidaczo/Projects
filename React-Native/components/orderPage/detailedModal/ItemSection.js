@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     textContainer: {
         flexDirection: 'row',
         paddingHorizontal: 16,
-        paddingVertical: 8,
+        paddingVertical: 16,
         alignItems: 'center',
 
     },

@@ -25,9 +25,11 @@ const styles = StyleSheet.create({
         borderRadius: circleContainerSize,
         height: circleContainerSize,
         backgroundColor: COLORS.orange,
+        // borderWidth: 2,
+        // borderColor: COLORS.lightWhite,
         justifyContent: 'center',
         alignItems: 'center',
-        elevation: 0,
+        elevation: 3,
         shadowColor: COLORS.lightWhite,
         shadowOffset: {
             width: 0,

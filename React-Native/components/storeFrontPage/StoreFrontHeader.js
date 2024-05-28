@@ -2,14 +2,15 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Logo from '../../assets/images/logo.svg';
 import { COLORS } from '../../constants';
+import { authStore } from '../../mobx/authStore';
 
 const StoreFrontHeader = () => {
     return (
         <View style={styles.headerContainer}>
             <View style={styles.imageContainer}>
-                <Logo />
+                {/* <Logo /> */}
             </View>
-            <Text style={styles.storeName}>{"Floraria David"}</Text>
+            <Text style={styles.storeName}>{authStore.name}</Text>
             <View />
         </View>
     );

@@ -24,10 +24,9 @@ export const CustomBottomTab = ({
   descriptors,
   navigation,
 }) => {
-  const { isUnproccedOrder } = OrdersStore;
   const [isKeyboardActive, setIsKeyboardActive] = useState(false);
-
-  const { containerPath, shadowStyle, borderPath, curvedPaths, tHeight } = usePath();
+  console.log("state", state)
+  const { containerPath, curvedPaths, tHeight } = usePath();
   const circleXCoordinate = useSharedValue(0);
   const progress = useSharedValue(1);
   const handleMoveCircle = (currentPath) => {
@@ -72,6 +71,7 @@ export const CustomBottomTab = ({
   }, [navigation.getState().index])
 
   const handleTabPress = (index, tab) => {
+    console.log("index", index, tab)
     navigation.navigate(tab);
 
     progress.value = withTiming(index);

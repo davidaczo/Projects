@@ -1,5 +1,5 @@
-BASE_URL = "http://127.0.0.1:8000/api/"
-
+export const BASE_URL = "https://bloomexpress.ro/api"
+export const DEV_URL = "http://3.121.10.45/api"
 //‘registered’, ‘canceled’, ‘processing’, ‘inDelivery’, ‘delivered’, ‘refused’, ‘underPayment’
 const OrderStatus = {
     REGISTERED: 'registered',

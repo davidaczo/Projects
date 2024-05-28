@@ -5,12 +5,18 @@ import { COLORS } from '../../../constants';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import HeaderBreadCrumb from '../breadCrumb/HeaderBreadCrumb';
 import { SCREEN_WIDTH } from '../../../constants/theme';
+import BloomTextInput from '../../common/textInput/BloomTextInput';
 
 const ProductListHeader = ({ setSearchQuery, searchQuery, allCategory, categories, selectedCategory, setSelectedCategory }) => {
     return (
         <View style={styles.container}>
             <View style={styles.searchInputContainer}>
                 <Icon style={styles.searchIcon} name="search" size={22} color={COLORS.green} />
+                {/* <BloomTextInput
+                    placeholder={'Search'}
+                    onChangeText={setSearchQuery}
+                    value={searchQuery}
+                /> */}
                 <TextInput
                     style={styles.searchInput}
                     placeholder={'Search'}

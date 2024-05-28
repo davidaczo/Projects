@@ -4,24 +4,26 @@ import { Text, ActivityIndicator, FlatList, SafeAreaView, RefreshControl } from 
 import OrdersStore from '../../../mobx/ordersStore';
 import { COLORS } from '../../../constants';
 import OrderCard from '../../../components/orderPage/orderCard/OrderCard';
+import { authStore } from '../../../mobx/authStore';
 
 
 const OrdersPage = observer(({ navigation }) => {
   const [pageNr, setPageNr] = useState(2);
+  const [partnerId, setPartnerId] = useState(authStore.partnerId);
   const { data, isLoading, error, isListEnd, loadOrders } = OrdersStore;
 
   useEffect(() => {
-    loadOrders(1, 1);
+    loadOrders(partnerId, 1);
   }, []);
 
   const onRefresh = async () => {
-    await loadOrders(1, 1);
+    await loadOrders(partnerId, 1);
     setPageNr(2);
   };
 
   const onEndReached = async () => {
     if (!isListEnd && !isLoading) {
-      await loadOrders(1, pageNr);
+      await loadOrders(partnerId, pageNr);
       setPageNr(pageNr + 1);
     }
   };
@@ -33,7 +35,7 @@ const OrdersPage = observer(({ navigation }) => {
   // }
 
   if (error) {
-    return <Text>Error: {error.message}</Text>;
+    return <Text>ErrorRR: {error.message}</Text>;
   }
 
   return (

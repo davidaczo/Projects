@@ -11,7 +11,6 @@ export const mapOrder = (apiResponse) => {
         shipping_address,
         items,
     } = orderData[0];
-    console.log("CARD INFOO", card_message)
 
     const mappedItems = items.map((item) => {
         const {
@@ -43,7 +42,6 @@ export const mapOrder = (apiResponse) => {
         };
     });
 
-    console.log("CARD INFOO", card_message)
     return {
         id,
         code,
@@ -73,8 +71,6 @@ export const mapOrders = (apiResponse) => {
             shipping_address,
             items,
         } = orderData;
-
-        console.log("CARD INFOO", card_message)
         const mappedItems = items.map((item) => {
             const {
                 base_price,
@@ -105,7 +101,6 @@ export const mapOrders = (apiResponse) => {
             };
         });
 
-        console.log("CARD INFOO", card_message)
         return {
             id,
             code,

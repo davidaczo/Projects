@@ -8,11 +8,14 @@ import { COLORS } from '../../constants';
 import SelectLanguageModal from './SelectLanguageModal';
 import storeService from '../../api/StoreApi';
 import { storeStore } from '../../mobx/storeStore';
+import CustomAlert from '../common/alert/CustomAlert';
+import { authStore } from '../../mobx/authStore';
 
 const OptionsList = () => {
     const { t } = useTranslation();
 
-    const [visible, setVisible] = useState(false);
+    const [lngModalVisible, setLngModalVisible] = useState(false);
+    const [logoutAlertVisible, setLogoutAlertVisible] = useState(false);
     const [initialLanguage, setInitialLanguage] = useState(i18next.language);
     const [isStoreOpen, setIsStoreOpen] = useState(true);
 
@@ -34,26 +37,52 @@ const OptionsList = () => {
     return (
         <View style={styles.optionsList}>
             <OptionListItem
-                text={t("closed/open")}
-                value={isStoreOpen}
-                onToggle={handleStoreToggle}
+                text={t("Available")}
+                iconSet='MaterialCommunityIcons'
+                iconName={"storefront-outline"}
+                // onPress={() => { setLogoutAlertVisible(true) }}
+                isSwitch={authStore.status}
+                rightIcon={{ size: 22, color: COLORS.secondaryLight }}
             />
+
             <OptionListItem
+                iconName={"clock"}
                 text={t("store_scheduler")}
-                rightIcon={{ size: 26, color: COLORS.secondaryLight }}
+                rightIcon={{ size: 22, color: COLORS.secondaryLight }}
             />
             <OptionListItem
                 text={t("language")}
-                onPress={() => setVisible(true)}
-                rightIcon={{ size: 26, color: COLORS.secondaryLight }}
+
+                iconName={"globe"}
+                onPress={() => setLngModalVisible(true)}
+                rightIcon={{ size: 22, color: COLORS.secondaryLight }}
             />
 
+            <OptionListItem
+                text={t("logout")}
+                iconName={"log-out"}
+                onPress={() => { setLogoutAlertVisible(true) }}
+                rightIcon={{ size: 22, color: COLORS.secondaryLight }}
+            />
+
+
+
             <SelectLanguageModal
-                isVisible={visible}
-                setVisible={(newValue) => { setVisible(newValue) }}
+                isVisible={lngModalVisible}
+                setVisible={(newValue) => { setLngModalVisible(newValue) }}
                 changeLng={changeLng}
                 languagesList={languagesList}
                 initialLanguage={initialLanguage}
+            />
+            <CustomAlert
+                visible={logoutAlertVisible}
+                setVisible={(newValue) => { setVisible(newValue) }}
+                title={t("logout")}
+                message={t("Are you sure you want to log out?")}
+                mainText={t("Yes")}
+                secondaryText={t("No")}
+                onAccept={() => { authStore.logout() }}
+                onCancel={() => { setLogoutAlertVisible(false) }}
             />
         </View>
     );

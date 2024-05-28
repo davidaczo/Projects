@@ -62,6 +62,7 @@ class OrdersStore {
 
     @action updateOrder = async (partnerId, orderId, newStatus) => {
         try {
+            console.log('Updating order:', orderId, newStatus)
             await orderService.updateOrder(partnerId, orderId, newStatus);
             runInAction(() => {
                 this.loadOrder(partnerId, orderId);
@@ -97,6 +98,6 @@ class OrdersStore {
 }
 
 // export class
-export default new OrdersStore();
+export default OrdersStore = new OrdersStore();
 
 

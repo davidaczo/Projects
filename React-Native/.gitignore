@@ -1,6 +1,6 @@
 # Node Modules
 node_modules/
-
+constants/
 # Expo generated files
 .expo/
 __generated__/

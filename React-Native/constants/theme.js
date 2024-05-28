@@ -13,6 +13,8 @@ const COLORS = {
   white: "#FFFFFF",
   lightWhite: "#F3F4F8",
 
+  errorRedWithOpacity: 'rgba(255, 119, 84, 0.5)',
+  errorRed: '#FF7754',
   red: '#FF0000',
 
   textBlack: '#313131',

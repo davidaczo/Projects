@@ -1,12 +1,15 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, ActivityIndicator } from 'react-native';
 import { COLORS } from '../../../constants/theme';
 
-const MainButton = ({ onPress, text, children, rightContent, width = '100%', height = 45 }) => {
+const MainButton = ({ onPress, text, children, rightContent, width = '100%', height = 45, isLoading = false }) => {
     return (
         <TouchableOpacity style={[styles.mainButton, { width: width, height: height }]} onPress={onPress}>
             <View style={styles.content}>{children}</View>
-            <Text style={styles.buttonText}>{text}</Text>
+            {isLoading ? <ActivityIndicator size="small" color={COLORS.white} />
+                :
+                <Text style={styles.buttonText}>{text}</Text>
+            }
             <View style={styles.content}>{rightContent}</View>
         </TouchableOpacity>
     );

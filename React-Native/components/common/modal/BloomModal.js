@@ -4,7 +4,7 @@ import { COLORS } from '../../../constants';
 import Icon from 'react-native-vector-icons/Entypo';
 import Modal from 'react-native-modal';
 
-const BloomModal = ({ isVisible, onClose, title, children, animationIn, animationOut, backgroundColor = COLORS.white, headerTextColor, marginTop = 0 }) => {
+const BloomModal = ({ isVisible, onClose = null, title, children, animationIn, animationOut, backgroundColor = COLORS.white, headerTextColor, marginTop = 0 }) => {
     return (
         <Modal
             style={{
@@ -26,9 +26,13 @@ const BloomModal = ({ isVisible, onClose, title, children, animationIn, animatio
             onBackButtonPress={onClose}>
             <View style={[styles.modalContainer]}>
                 <View style={[styles.header, { marginTop: marginTop > 0 ? 0 : 28 }]}>
-                    <TouchableOpacity onPress={onClose} style={{ flex: 1 }}>
-                        <Icon name="chevron-left" size={35} color={headerTextColor} />
-                    </TouchableOpacity>
+                    {onClose ?
+                        <TouchableOpacity onPress={onClose} style={{ flex: 1 }}>
+                            <Icon name="chevron-left" size={35} color={headerTextColor} />
+                        </TouchableOpacity>
+                        :
+                        <View style={{ flex: 1 }} />
+                    }
                     <Text style={[styles.headerText, { color: headerTextColor }]}>{title}</Text>
                     <View style={{ flex: 1 }} />
                 </View>
